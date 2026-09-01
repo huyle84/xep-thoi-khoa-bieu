@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  id               String   @id @default(cuid())
+  code             String   @unique
+  name             String
+  periodsPerWeek   Int      // Số tiết/tuần
+  maxPeriodsPerDay Int      @default(2) // Số tiết tối đa trong 1 ngày
+  roomType         String   @default("NORMAL") // NORMAL, LAB, COMPUTER, GYM
+  isCore           Boolean  @default(false) // Môn học lõi (Toán, Văn, Anh)
+  color            String   @default("#3B82F6") // Màu hiển thị trên TKB
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  assignments TeachingAssignment[]
+}
+
+model Teacher {
+  id              String   @id @default(cuid())
+  code            String   @unique
+  name            String
+  maxPeriodsPerWeek Int    @default(20)
+  phone           String   @default("")
+  email           String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  assignments TeachingAssignment[]
+  busySlots   TeacherBusySlot[]
+}
+
+model TeacherBusySlot {
+  id        String  @id @default(cuid())
+  teacherId String
+  dayOfWeek Int     // 2-7 (Monday=2, Saturday=7)
+  period    Int     // 1-10 (1-5 morning, 6-10 afternoon)
+  reason    String  @default("")
+
+  teacher Teacher @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+
+  @@unique([teacherId, dayOfWeek, period])
+}
+
+model Class {
+  id          String   @id @default(cuid())
+  grade       Int      // Khối: 10, 11, 12
+  name        String   // Ví dụ: 10A, 11B, 12C
+  roomId      String?  // Phòng học cố định
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  room        Room?               @relation(fields: [roomId], references: [id])
+  assignments TeachingAssignment[]
+
+  @@unique([grade, name])
+}
+
+model Room {
+  id       String @id @default(cuid())
+  name     String @unique
+  type     String @default("NORMAL") // NORMAL, LAB, COMPUTER, GYM
+  capacity Int    @default(40)
+
+  classes         Class[]
+  scheduleEntries ScheduleEntry[]
+}
+
+model TeachingAssignment {
+  id             String   @id @default(cuid())
+  classId        String
+  subjectId      String
+  teacherId      String
+  periodsPerWeek Int      // Số tiết/tuần được phân công
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  class          Class           @relation(fields: [classId], references: [id], onDelete: Cascade)
+  subject        Subject         @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  teacher        Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  scheduleEntries ScheduleEntry[]
+
+  @@unique([classId, subjectId])
+}
+
+model ScheduleEntry {
+  id           String   @id @default(cuid())
+  assignmentId String
+  roomId       String?
+  dayOfWeek    Int      // 2-7
+  period       Int      // 1-10
+  weekNumber   Int      @default(1)
+  isLocked     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  assignment  TeachingAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  room        Room?              @relation(fields: [roomId], references: [id])
+
+  @@unique([dayOfWeek, period, assignmentId, weekNumber])
+}
+
+model SchoolConfig {
+  id                String @id @default(cuid())
+  schoolName        String @default("Trường THPT")
+  academicYear      String @default("2025-2026")
+  morningPeriods    Int    @default(5)  // Số tiết buổi sáng
+  afternoonPeriods  Int    @default(5)  // Số tiết buổi chiều
+  workingDays       String @default("2,3,4,5,6,7") // Các ngày học (2=T2...7=T7)
+}
