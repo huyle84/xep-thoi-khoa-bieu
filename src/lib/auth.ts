@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs';
 import { prisma } from './db';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  // Bỏ PrismaAdapter khi dùng JWT strategy
   session: { strategy: 'jwt' },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
@@ -16,7 +15,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
-        password: { label: 'Mật khẩu', type: 'password' }
+        password: { label: 'Mat khau', type: 'password' }
       },
       async authorize(credentials) {
         try {
@@ -32,11 +31,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return null;
           }
 
-          // Kiểm tra email đã verify chưa
-          if (!user.emailVerified) {
-            throw new Error('EMAIL_NOT_VERIFIED');
-          }
-
           const isValidPassword = await bcrypt.compare(
             credentials.password as string,
             user.password
@@ -46,6 +40,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return null;
           }
 
+          // Cho phep dang nhap du email chua verify
+          // Chi hien canh bao tren dashboard neu emailVerified = null
           return {
             id: user.id,
             email: user.email,
@@ -53,10 +49,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             role: user.role,
             image: user.image ?? null,
           };
-        } catch (error: any) {
-          if (error.message === 'EMAIL_NOT_VERIFIED') {
-            throw new Error('EMAIL_NOT_VERIFIED');
-          }
+        } catch {
           return null;
         }
       }
