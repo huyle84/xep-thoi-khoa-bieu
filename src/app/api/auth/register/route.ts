@@ -64,7 +64,11 @@ export async function POST(req: Request) {
       }
     });
 
-    const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/auth/verify-email?token=${token}`;
+    const appUrl = process.env.NEXTAUTH_URL 
+      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    const verifyUrl = `${appUrl}/api/auth/verify-email?token=${token}`;
+
+
     const emailHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2>Xin chào ${name},</h2>

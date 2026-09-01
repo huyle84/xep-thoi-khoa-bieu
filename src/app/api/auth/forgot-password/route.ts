@@ -33,7 +33,10 @@ export async function POST(req: Request) {
       }
     });
 
-    const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/reset-password?token=${token}`;
+    const appUrl = process.env.NEXTAUTH_URL 
+      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    const resetUrl = `${appUrl}/reset-password?token=${token}`;
+
     const emailHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2>Xin chào,</h2>
