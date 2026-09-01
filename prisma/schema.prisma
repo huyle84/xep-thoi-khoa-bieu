@@ -3,74 +3,158 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  password      String?
+  role          String    @default("USER")
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  id         String   @id @default(cuid())
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+
+model SchoolConfig {
+  id               String  @id @default(cuid())
+  schoolName       String  @default("Truong THPT")
+  academicYear     String  @default("2025-2026")
+  morningPeriods   Int     @default(5)
+  afternoonPeriods Int     @default(5)
+  workingDays      String  @default("2,3,4,5,6,7")
+  setupCompleted   Boolean @default(false)
+  logoUrl          String?
+}
+
+model GradeBlock {
+  id       String  @id @default(cuid())
+  name     String
+  gradeNum Int     @unique
+  order    Int     @default(0)
+  color    String  @default("#3B82F6")
+  classes  Class[]
+}
+
+model PeriodConfig {
+  id           String @id @default(cuid())
+  periodNumber Int    @unique
+  session      String @default("MORNING")
+  label        String
+  startTime    String @default("")
+  endTime      String @default("")
+  order        Int    @default(0)
+}
 
 model Subject {
   id               String   @id @default(cuid())
   code             String   @unique
   name             String
-  periodsPerWeek   Int      // Số tiết/tuần
-  maxPeriodsPerDay Int      @default(2) // Số tiết tối đa trong 1 ngày
-  roomType         String   @default("NORMAL") // NORMAL, LAB, COMPUTER, GYM
-  isCore           Boolean  @default(false) // Môn học lõi (Toán, Văn, Anh)
-  color            String   @default("#3B82F6") // Màu hiển thị trên TKB
+  periodsPerWeek   Int      @default(2)
+  maxPeriodsPerDay Int      @default(2)
+  roomType         String   @default("NORMAL")
+  isCore           Boolean  @default(false)
+  color            String   @default("#3B82F6")
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-
-  assignments TeachingAssignment[]
+  assignments      TeachingAssignment[]
 }
 
 model Teacher {
-  id              String   @id @default(cuid())
-  code            String   @unique
-  name            String
-  maxPeriodsPerWeek Int    @default(20)
-  phone           String   @default("")
-  email           String   @default("")
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  assignments TeachingAssignment[]
-  busySlots   TeacherBusySlot[]
+  id                String   @id @default(cuid())
+  code              String   @unique
+  name              String
+  maxPeriodsPerWeek Int      @default(20)
+  phone             String   @default("")
+  email             String   @default("")
+  avatarUrl         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  assignments       TeachingAssignment[]
+  busySlots         TeacherBusySlot[]
+  homeroomClasses   HomeroomAssignment[]
 }
 
 model TeacherBusySlot {
   id        String  @id @default(cuid())
   teacherId String
-  dayOfWeek Int     // 2-7 (Monday=2, Saturday=7)
-  period    Int     // 1-10 (1-5 morning, 6-10 afternoon)
+  dayOfWeek Int
+  period    Int
   reason    String  @default("")
-
-  teacher Teacher @relation(fields: [teacherId], references: [id], onDelete: Cascade)
-
+  teacher   Teacher @relation(fields: [teacherId], references: [id], onDelete: Cascade)
   @@unique([teacherId, dayOfWeek, period])
 }
 
 model Class {
-  id          String   @id @default(cuid())
-  grade       Int      // Khối: 10, 11, 12
-  name        String   // Ví dụ: 10A, 11B, 12C
-  roomId      String?  // Phòng học cố định
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  room        Room?               @relation(fields: [roomId], references: [id])
-  assignments TeachingAssignment[]
-
+  id           String   @id @default(cuid())
+  grade        Int
+  name         String
+  roomId       String?
+  gradeBlockId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  room         Room?               @relation(fields: [roomId], references: [id])
+  gradeBlock   GradeBlock?         @relation(fields: [gradeBlockId], references: [id])
+  assignments  TeachingAssignment[]
+  homeroom     HomeroomAssignment?
   @@unique([grade, name])
 }
 
 model Room {
-  id       String @id @default(cuid())
-  name     String @unique
-  type     String @default("NORMAL") // NORMAL, LAB, COMPUTER, GYM
-  capacity Int    @default(40)
-
+  id              String          @id @default(cuid())
+  name            String          @unique
+  type            String          @default("NORMAL")
+  capacity        Int             @default(40)
   classes         Class[]
   scheduleEntries ScheduleEntry[]
+}
+
+model HomeroomAssignment {
+  id           String  @id @default(cuid())
+  classId      String  @unique
+  teacherId    String
+  academicYear String  @default("2025-2026")
+  class        Class   @relation(fields: [classId], references: [id], onDelete: Cascade)
+  teacher      Teacher @relation(fields: [teacherId], references: [id], onDelete: Cascade)
 }
 
 model TeachingAssignment {
@@ -78,15 +162,13 @@ model TeachingAssignment {
   classId        String
   subjectId      String
   teacherId      String
-  periodsPerWeek Int      // Số tiết/tuần được phân công
+  periodsPerWeek Int      @default(1)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-
-  class          Class           @relation(fields: [classId], references: [id], onDelete: Cascade)
-  subject        Subject         @relation(fields: [subjectId], references: [id], onDelete: Cascade)
-  teacher        Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  class           Class           @relation(fields: [classId], references: [id], onDelete: Cascade)
+  subject         Subject         @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  teacher         Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
   scheduleEntries ScheduleEntry[]
-
   @@unique([classId, subjectId])
 }
 
@@ -94,24 +176,13 @@ model ScheduleEntry {
   id           String   @id @default(cuid())
   assignmentId String
   roomId       String?
-  dayOfWeek    Int      // 2-7
-  period       Int      // 1-10
+  dayOfWeek    Int
+  period       Int
   weekNumber   Int      @default(1)
   isLocked     Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
-  assignment  TeachingAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
-  room        Room?              @relation(fields: [roomId], references: [id])
-
+  assignment   TeachingAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  room         Room?              @relation(fields: [roomId], references: [id])
   @@unique([dayOfWeek, period, assignmentId, weekNumber])
-}
-
-model SchoolConfig {
-  id                String @id @default(cuid())
-  schoolName        String @default("Trường THPT")
-  academicYear      String @default("2025-2026")
-  morningPeriods    Int    @default(5)  // Số tiết buổi sáng
-  afternoonPeriods  Int    @default(5)  // Số tiết buổi chiều
-  workingDays       String @default("2,3,4,5,6,7") // Các ngày học (2=T2...7=T7)
 }

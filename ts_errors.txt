@@ -1,8 +1,8 @@
-src/app/api/schedule/generate/route.ts(67,50): error TS7006: Parameter 'entry' implicitly has an 'any' type.
-src/app/api/schedule/swap/route.ts(28,11): error TS7034: Variable 'conflicts' implicitly has type 'any[]' in some locations where its type cannot be determined.
-src/app/api/schedule/swap/route.ts(78,85): error TS7005: Variable 'conflicts' implicitly has an 'any[]' type.
-src/lib/algorithms/backtracking.ts(3,3): error TS2305: Module '"./types"' has no exported member 'AlgorithmResult'.
-src/lib/algorithms/backtracking.ts(6,3): error TS2305: Module '"./types"' has no exported member 'SchedulableAssignment'.
-src/lib/algorithms/backtracking.ts(57,16): error TS2322: Type 'string | null' is not assignable to type 'string | undefined'.
-  Type 'null' is not assignable to type 'string | undefined'.
-src/lib/algorithms/backtracking.ts(121,11): error TS2741: Property 'id' is missing in type '{ assignmentId: any; classId: any; className: any; subjectId: any; subjectName: any; teacherId: any; teacherName: any; roomId: any; dayOfWeek: number; period: number; }' but required in type 'PlacedEntry'.
+src/app/login/page.tsx(6,25): error TS2307: Cannot find module 'react-form' or its corresponding type declarations.
+src/app/profile/page.tsx(104,37): error TS2339: Property 'role' does not exist on type 'User'.
+src/components/layout/Header.tsx(48,21): error TS2322: Type '{ user: { name: string; email: string; }; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'user' does not exist on type 'IntrinsicAttributes'.
+src/components/layout/Sidebar.tsx(114,33): error TS2339: Property 'role' does not exist on type 'User'.
+src/lib/auth.ts(56,27): error TS2339: Property 'role' does not exist on type 'User | AdapterUser'.
+  Property 'role' does not exist on type 'User'.
+src/lib/auth.ts(63,22): error TS2339: Property 'role' does not exist on type 'AdapterUser & User'.

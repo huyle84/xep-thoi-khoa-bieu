@@ -1,28 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "@/components/layout/Sidebar";
-import { Toaster } from "@/components/ui/toaster";
+import { SessionProvider } from 'next-auth/react';
+import { auth } from '@/lib/auth';
+
 
 export const metadata: Metadata = {
   title: "TKB Manager",
-  description: "Phần mềm xếp thời khóa biểu trường học",
+  description: "Phần mềm quản lý thời khóa biểu",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="vi">
-      <body>
-        <div className="flex h-screen overflow-hidden bg-gray-50">
-          <Sidebar />
-          <main className="flex-1 overflow-y-auto">
-            {children}
-          </main>
-        </div>
-        <Toaster />
+      <body >
+        <SessionProvider session={session}>
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

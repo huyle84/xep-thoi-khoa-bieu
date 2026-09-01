@@ -1,47 +1,76 @@
-import { prisma } from '@/lib/db';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from '@/lib/db'
 
 export async function GET() {
   try {
-    let config = await prisma.schoolConfig.findFirst();
+    let config = await prisma.schoolConfig.findFirst()
+
     if (!config) {
-      // Create default config if not exists
       config = await prisma.schoolConfig.create({
         data: {
-          morningPeriods: 5,
-          afternoonPeriods: 5,
-          workingDays: "2,3,4,5,6,7",
-        },
-      });
+          setupCompleted: false,
+        }
+      })
     }
-    return NextResponse.json(config);
+
+    return NextResponse.json(config)
   } catch (error) {
-    console.error('Lỗi khi lấy cấu hình trường học:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi lấy cấu hình trường học' }, { status: 500 });
+    console.error('Error fetching school config:', error)
+    return NextResponse.json(
+      { error: 'Lỗi khi tải cấu hình trường học' },
+      { status: 500 }
+    )
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const body = await req.json()
+    const config = await prisma.schoolConfig.findFirst()
+
+    if (!config) {
+      return NextResponse.json(
+        { error: 'Không tìm thấy cấu hình' },
+        { status: 404 }
+      )
+    }
+
+    const updatedConfig = await prisma.schoolConfig.update({
+      where: { id: config.id },
+      data: body,
+    })
+
+    return NextResponse.json(updatedConfig)
+  } catch (error) {
+    console.error('Error partial updating config:', error)
+    return NextResponse.json(
+      { error: 'Lỗi khi cập nhật cấu hình' },
+      { status: 500 }
+    )
   }
 }
 
 export async function PUT(req: NextRequest) {
   try {
-    const data = await req.json();
-    const { morningPeriods, afternoonPeriods, workingDays } = data;
+    const body = await req.json()
+    const config = await prisma.schoolConfig.findFirst()
 
-    let config = await prisma.schoolConfig.findFirst();
-    
-    if (config) {
-      config = await prisma.schoolConfig.update({
-        where: { id: config.id },
-        data: { morningPeriods, afternoonPeriods, workingDays },
-      });
-    } else {
-      config = await prisma.schoolConfig.create({
-        data: { morningPeriods, afternoonPeriods, workingDays },
-      });
+    if (!config) {
+      const newConfig = await prisma.schoolConfig.create({ data: body })
+      return NextResponse.json(newConfig)
     }
-    
-    return NextResponse.json(config);
+
+    const updatedConfig = await prisma.schoolConfig.update({
+      where: { id: config.id },
+      data: body,
+    })
+
+    return NextResponse.json(updatedConfig)
   } catch (error) {
-    console.error('Lỗi khi cập nhật cấu hình trường học:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi cập nhật cấu hình trường học' }, { status: 500 });
+    console.error('Error updating config:', error)
+    return NextResponse.json(
+      { error: 'Lỗi khi cập nhật cấu hình' },
+      { status: 500 }
+    )
   }
 }
