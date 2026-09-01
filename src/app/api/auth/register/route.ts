@@ -37,11 +37,26 @@ export async function POST(req: Request) {
     });
 
     if (existingUser) {
-      return NextResponse.json(
-        { error: 'Email này đã được sử dụng.' },
-        { status: 409 }
-      );
+      // Nếu email đã tồn tại nhưng CHƯA verify → xóa và cho đăng ký lại
+      if (!existingUser.emailVerified) {
+        // Xóa verification tokens cũ
+        await prisma.verificationToken.deleteMany({
+          where: { identifier: email }
+        });
+        // Xóa user cũ chưa verify
+        await prisma.user.delete({
+          where: { email }
+        });
+        // Tiếp tục đăng ký bình thường bên dưới
+      } else {
+        // Email đã verify → báo lỗi
+        return NextResponse.json(
+          { error: 'Email này đã được sử dụng.' },
+          { status: 409 }
+        );
+      }
     }
+
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
