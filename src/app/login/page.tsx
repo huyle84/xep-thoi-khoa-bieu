@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, Suspense } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -16,11 +16,12 @@ const loginSchema = z.object({
 
 type LoginFormValues = z.infer<typeof loginSchema>;
 
-export default function LoginPage() {
+// Tách component riêng để dùng useSearchParams (cần Suspense)
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const verified = searchParams.get('verified');
-  
+
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -40,12 +41,16 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
-        setError('Email hoặc mật khẩu không đúng');
+        if (result.error === 'EMAIL_NOT_VERIFIED') {
+          setError('Email chưa được xác thực. Vui lòng kiểm tra hộp thư và click link xác thực.');
+        } else {
+          setError('Email hoặc mật khẩu không đúng.');
+        }
       } else {
         router.push('/');
         router.refresh();
       }
-    } catch (err) {
+    } catch {
       setError('Đã có lỗi xảy ra. Vui lòng thử lại sau.');
     } finally {
       setIsLoading(false);
@@ -62,7 +67,7 @@ export default function LoginPage() {
 
         {verified && (
           <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg text-sm text-center">
-            Email đã được xác thực! Vui lòng đăng nhập.
+            ✅ Email đã được xác thực! Vui lòng đăng nhập.
           </div>
         )}
 
@@ -127,5 +132,18 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Export default với Suspense wrapper
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="animate-spin" size={32} />
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }
