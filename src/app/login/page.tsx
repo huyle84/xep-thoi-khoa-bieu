@@ -41,14 +41,12 @@ function LoginForm() {
       });
 
       if (result?.error) {
-        if (result.error === 'EMAIL_NOT_VERIFIED') {
-          setError('Email chưa được xác thực. Vui lòng kiểm tra hộp thư và click link xác thực.');
-        } else {
-          setError('Email hoặc mật khẩu không đúng.');
-        }
+        setError('Email hoặc mật khẩu không đúng.');
+      } else if (result?.ok) {
+        // Hard redirect để cookie được ghi đúng trước khi load trang mới
+        window.location.href = '/';
       } else {
-        router.push('/');
-        router.refresh();
+        setError('Đã có lỗi xảy ra. Vui lòng thử lại.');
       }
     } catch {
       setError('Đã có lỗi xảy ra. Vui lòng thử lại sau.');
