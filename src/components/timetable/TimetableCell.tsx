@@ -35,11 +35,12 @@ export default function TimetableCell({ entry, hasConflict, viewMode = 'class', 
       
       <div className="flex flex-col mt-1">
         {viewMode === 'class' ? (
-          <span className="text-xs text-gray-600 line-clamp-1">{entry.teacherName}</span>
+          <span className="text-xs text-gray-600 line-clamp-1">
+            {entry.teacher?.shortName || (entry.teacherName ? entry.teacherName.split(' ')[0] : '')}
+          </span>
         ) : (
           <span className="text-xs font-semibold text-gray-700 line-clamp-1">{entry.className}</span>
         )}
-        <span className="text-[10px] text-gray-500 line-clamp-1 mt-0.5">{entry.roomName || 'Chưa xếp phòng'}</span>
       </div>
 
       <button 

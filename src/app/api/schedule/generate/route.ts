@@ -5,16 +5,32 @@ import { generateSchedule } from '@/lib/algorithms/backtracking';
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { weekNumber = 1, clearExisting = true } = data;
+    const { weekNumber = 1, clearExisting = true, mode = 'full', classId, subjectId, session } = data;
+
+    let assignmentWhere = {};
+    if (mode === 'class' && classId) {
+      assignmentWhere = { classId };
+    } else if (mode === 'subject-session' && subjectId) {
+      assignmentWhere = { subjectId };
+    }
 
     if (clearExisting) {
-      await prisma.scheduleEntry.deleteMany({
-        where: { weekNumber },
-      });
+      if (mode === 'full') {
+        await prisma.scheduleEntry.deleteMany({
+          where: { weekNumber },
+        });
+      } else {
+        // delete entries matching the assignments
+        const assignmentsToDelete = await prisma.teachingAssignment.findMany({ where: assignmentWhere, select: { id: true } });
+        await prisma.scheduleEntry.deleteMany({
+          where: { weekNumber, assignmentId: { in: assignmentsToDelete.map(a => a.id) } }
+        });
+      }
     }
 
     const [assignments, busySlots, rooms, config] = await Promise.all([
       prisma.teachingAssignment.findMany({
+        where: assignmentWhere,
         include: {
           class: true,
           subject: true,
@@ -53,12 +69,15 @@ export async function POST(req: NextRequest) {
       capacity: r.capacity,
     }));
 
+    const morningPeriods = mode === 'subject-session' && session === 'AFTERNOON' ? 0 : (config?.morningPeriods || 5);
+    const afternoonPeriods = mode === 'subject-session' && session === 'MORNING' ? 0 : (config?.afternoonPeriods || 5);
+
     const algorithmInput = {
       assignments: algoAssignments,
       busySlots: algoBusySlots,
       rooms: algoRooms,
-      morningPeriods: config?.morningPeriods || 5,
-      afternoonPeriods: config?.afternoonPeriods || 5,
+      morningPeriods: morningPeriods,
+      afternoonPeriods: afternoonPeriods,
       workingDays: (config?.workingDays || "2,3,4,5,6,7").split(',').map(Number).filter(Boolean),
     };
 

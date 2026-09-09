@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import {
   Home, Layers, Users, BookOpen, GraduationCap, UserCheck,
   ClipboardList, Calendar, Clock, Wand2, Settings, BarChart2,
-  Lock, ChevronDown, ChevronRight, LogOut, Grid,
+  Lock, ChevronDown, ChevronRight, LogOut, Grid, Database,
 } from "lucide-react";
+
 
 const MENU_GROUPS = [
   {
@@ -35,8 +36,10 @@ const MENU_GROUPS = [
   {
     label: "Cấu hình",
     items: [
-      { name: "Tiết cố định",  href: "/fixed-periods",  icon: Lock },
-      { name: "Cài đặt chung", href: "/config",          icon: Settings },
+      { name: "Tiết cố định",  href: "/fixed-periods",   icon: Lock },
+      { name: "Giới hạn tiết", href: "/teacher-limits",  icon: Settings },
+      { name: "Cài đặt chung", href: "/config",           icon: Settings },
+      { name: "Sao lưu TKB",   href: "/backup",           icon: Database },
     ],
   },
 ];

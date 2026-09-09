@@ -1,39 +1,43 @@
 import { prisma } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
+function generateShortName(fullName: string): string {
+  const parts = fullName.trim().split(' ').filter(Boolean);
+  if (parts.length === 0) return '';
+  if (parts.length === 1) return parts[0];
+  const lastName = parts[parts.length - 1];
+  const initials = parts.slice(0, -1).map(p => p.charAt(0).toUpperCase() + '.').join('');
+  return initials + lastName;
+}
+
 export async function GET() {
   try {
     const teachers = await prisma.teacher.findMany({
       include: {
         _count: {
           select: {
-            assignments: true,
             busySlots: true,
           },
         },
         assignments: {
           select: {
-            subject: {
-              select: {
-                periodsPerWeek: true,
-              },
-            },
+            periodsPerWeek: true,
           },
         },
       },
     });
 
-    // Calculate total scheduled periods for each teacher
     const formattedTeachers = teachers.map((teacher) => {
       const totalScheduledPeriods = teacher.assignments.reduce(
-        (total, assignment) => total + (assignment.subject?.periodsPerWeek || 0),
+        (total, assignment) => total + (assignment.periodsPerWeek || 0),
         0
       );
       
-      const { assignments, ...rest } = teacher;
+      const { assignments, _count, ...rest } = teacher;
       return {
         ...rest,
-        totalScheduledPeriods,
+        assignmentsCount: totalScheduledPeriods,
+        busySlotsCount: _count.busySlots,
       };
     });
 
@@ -47,14 +51,14 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { code, name, shortName, maxPeriodsPerWeek } = data;
+    let { code, name, shortName, maxPeriodsPerWeek, phone, email } = data;
 
     if (!code || !name) {
       return NextResponse.json({ error: 'Mã và tên giáo viên là bắt buộc' }, { status: 400 });
     }
 
-    if (maxPeriodsPerWeek < 1 || maxPeriodsPerWeek > 40) {
-      return NextResponse.json({ error: 'Số tiết tối đa/tuần phải từ 1 đến 40' }, { status: 400 });
+    if (!shortName) {
+      shortName = generateShortName(name);
     }
 
     const existingTeacher = await prisma.teacher.findUnique({ where: { code } });
@@ -66,8 +70,10 @@ export async function POST(req: NextRequest) {
       data: {
         code,
         name,
-        shortName: shortName || "",
-        maxPeriodsPerWeek: maxPeriodsPerWeek || 30,
+        shortName,
+        maxPeriodsPerWeek: maxPeriodsPerWeek ? Number(maxPeriodsPerWeek) : 20,
+        phone: phone || "",
+        email: email || "",
       },
     });
 
@@ -81,7 +87,7 @@ export async function POST(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   try {
     const data = await req.json();
-    const { id, code, name, shortName, maxPeriodsPerWeek, maxPeriodsPerMorning, maxPeriodsPerAfternoon } = data;
+    const { id, code, name, shortName, maxPeriodsPerWeek, phone, email } = data;
 
     if (!id) {
       return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
@@ -93,9 +99,9 @@ export async function PATCH(req: NextRequest) {
         ...(code && { code }),
         ...(name && { name }),
         ...(shortName !== undefined && { shortName }),
-        ...(maxPeriodsPerWeek && { maxPeriodsPerWeek }),
-        ...(maxPeriodsPerMorning !== undefined && { maxPeriodsPerMorning }),
-        ...(maxPeriodsPerAfternoon !== undefined && { maxPeriodsPerAfternoon }),
+        ...(maxPeriodsPerWeek !== undefined && { maxPeriodsPerWeek: Number(maxPeriodsPerWeek) }),
+        ...(phone !== undefined && { phone }),
+        ...(email !== undefined && { email }),
       },
     });
 
@@ -103,5 +109,32 @@ export async function PATCH(req: NextRequest) {
   } catch (error) {
     console.error('Lỗi khi cập nhật giáo viên:', error);
     return NextResponse.json({ error: 'Đã xảy ra lỗi khi cập nhật giáo viên' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    // Check if ID is in search params
+    const url = new URL(req.url);
+    let id = url.searchParams.get('id');
+
+    // If not in search params, check body
+    if (!id) {
+      const data = await req.json().catch(() => ({}));
+      id = data.id;
+    }
+
+    if (!id) {
+      return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
+
+    await prisma.teacher.delete({
+      where: { id },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Lỗi khi xóa giáo viên:', error);
+    return NextResponse.json({ error: 'Đã xảy ra lỗi khi xóa giáo viên' }, { status: 500 });
   }
 }

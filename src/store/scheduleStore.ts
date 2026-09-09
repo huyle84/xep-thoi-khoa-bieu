@@ -29,7 +29,7 @@ interface ScheduleState {
   fetchEntries: (classId?: string, teacherId?: string, week?: number) => Promise<void>;
   moveEntry: (entryId: string, newDay: number, newPeriod: number) => Promise<{ success: boolean; conflicts?: Conflict[] }>;
   swapEntries: (entryAId: string, entryBId: string) => Promise<{ success: boolean; conflicts?: Conflict[] }>;
-  generateSchedule: (weekNumber: number) => Promise<void>;
+  generateSchedule: (options: { weekNumber: number, mode?: string, classId?: string, subjectId?: string, session?: string }) => Promise<void>;
   validateSchedule: () => Promise<void>;
 }
 
@@ -174,13 +174,13 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
     }
   },
 
-  generateSchedule: async (weekNumber) => {
+  generateSchedule: async (options) => {
     set({ isGenerating: true });
     try {
       const res = await fetch('/api/schedule/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ weekNumber })
+        body: JSON.stringify(options)
       });
       if (res.ok) {
         const data = await res.json();

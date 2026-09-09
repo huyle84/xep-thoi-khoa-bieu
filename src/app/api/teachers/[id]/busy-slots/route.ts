@@ -3,61 +3,89 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const teacherId = params.id;
+    if (!teacherId) {
+      return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
+
     const busySlots = await prisma.teacherBusySlot.findMany({
-      where: { teacherId: params.id },
+      where: { teacherId },
     });
+
     return NextResponse.json(busySlots);
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách khung giờ bận:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi lấy khung giờ bận' }, { status: 500 });
+    console.error('Lỗi khi lấy tiết bận của giáo viên:', error);
+    return NextResponse.json({ error: 'Lỗi server' }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const teacherId = params.id;
+    if (!teacherId) {
+      return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
+
     const data = await req.json();
     const { dayOfWeek, period, reason } = data;
 
-    if (dayOfWeek < 2 || dayOfWeek > 7) {
-      return NextResponse.json({ error: 'Ngày trong tuần phải từ 2 (Thứ 2) đến 7 (Thứ 7)' }, { status: 400 });
+    if (dayOfWeek === undefined || period === undefined) {
+      return NextResponse.json({ error: 'Thiếu thông tin ngày/tiết' }, { status: 400 });
     }
 
-    if (period < 1 || period > 10) {
-      return NextResponse.json({ error: 'Tiết học phải từ 1 đến 10' }, { status: 400 });
-    }
-
-    const busySlot = await prisma.teacherBusySlot.create({
-      data: {
-        teacherId: params.id,
-        dayOfWeek,
-        period,
-        reason,
+    const slot = await prisma.teacherBusySlot.upsert({
+      where: {
+        teacherId_dayOfWeek_period: {
+          teacherId,
+          dayOfWeek: Number(dayOfWeek),
+          period: Number(period),
+        }
+      },
+      update: {
+        reason: reason || "",
+      },
+      create: {
+        teacherId,
+        dayOfWeek: Number(dayOfWeek),
+        period: Number(period),
+        reason: reason || "",
       },
     });
 
-    return NextResponse.json(busySlot, { status: 201 });
+    return NextResponse.json(slot);
   } catch (error) {
-    console.error('Lỗi khi thêm khung giờ bận:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi thêm khung giờ bận' }, { status: 500 });
+    console.error('Lỗi khi cập nhật tiết bận:', error);
+    return NextResponse.json({ error: 'Lỗi server' }, { status: 500 });
   }
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const data = await req.json();
-    const { id: slotId } = data;
+    const teacherId = params.id;
+    if (!teacherId) {
+      return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
 
-    if (!slotId) {
-      return NextResponse.json({ error: 'Thiếu ID khung giờ bận' }, { status: 400 });
+    const data = await req.json();
+    const { dayOfWeek, period } = data;
+
+    if (dayOfWeek === undefined || period === undefined) {
+      return NextResponse.json({ error: 'Thiếu thông tin ngày/tiết' }, { status: 400 });
     }
 
     await prisma.teacherBusySlot.delete({
-      where: { id: slotId },
+      where: {
+        teacherId_dayOfWeek_period: {
+          teacherId,
+          dayOfWeek: Number(dayOfWeek),
+          period: Number(period),
+        }
+      }
     });
 
-    return NextResponse.json({ message: 'Đã xóa khung giờ bận thành công' });
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Lỗi khi xóa khung giờ bận:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi xóa khung giờ bận' }, { status: 500 });
+    console.error('Lỗi khi xóa tiết bận:', error);
+    return NextResponse.json({ error: 'Lỗi server' }, { status: 500 });
   }
 }

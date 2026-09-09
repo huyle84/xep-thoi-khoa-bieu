@@ -19,6 +19,10 @@ export interface PlacedEntry {
   dayOfWeek: number;
   period: number;
   color?: string;
+  teacher?: {
+    shortName?: string;
+    [key: string]: any;
+  };
 }
 
 export interface Conflict {

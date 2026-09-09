@@ -194,6 +194,14 @@ model ScheduleEntry {
   @@unique([dayOfWeek, period, assignmentId, weekNumber])
 }
 
+model TKBSnapshot {
+  id         String   @id @default(cuid())
+  label      String
+  data       String   // JSON serialized ScheduleEntry[]
+  entryCount Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
 model SubjectPeriod {
   id             String  @id @default(cuid())
   subjectId      String
