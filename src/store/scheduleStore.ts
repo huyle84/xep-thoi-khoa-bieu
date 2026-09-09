@@ -14,7 +14,7 @@ interface ScheduleState {
   setEntries: (entries: PlacedEntry[]) => void;
   addEntry: (entry: PlacedEntry) => void;
   updateEntry: (entry: PlacedEntry) => void;
-  removeEntry: (id: string) => void;
+  removeEntry: (id: string) => Promise<void>;
   setViewMode: (mode: 'class' | 'teacher') => void;
   setSelectedId: (id: string | null) => void;
   setWeekNumber: (week: number) => void;
@@ -54,12 +54,17 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
       entries: state.entries.map((e) => e.id === updatedEntry.id ? updatedEntry : e)
     };
   }),
-  removeEntry: (id) => set((state) => {
-    state.pushToUndoStack(state.entries);
-    return {
-      entries: state.entries.filter((e) => e.id !== id)
-    };
-  }),
+  removeEntry: async (id) => {
+    try {
+      await fetch(`/api/schedule/${id}`, { method: 'DELETE' });
+    } catch (e) {
+      console.error('Failed to delete entry', e);
+    }
+    set((state) => {
+      state.pushToUndoStack(state.entries);
+      return { entries: state.entries.filter((e) => e.id !== id) };
+    });
+  },
   setViewMode: (viewMode) => set({ viewMode }),
   setSelectedId: (selectedId) => set({ selectedId }),
   setWeekNumber: (weekNumber) => set({ weekNumber }),
@@ -101,8 +106,30 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
       
       const res = await fetch(url.toString());
       if (res.ok) {
-        const data = await res.json();
-        set({ entries: data.entries || [] });
+        const raw = await res.json();
+        // API returns array of DB records OR { entries: [...] }
+        const rawEntries = Array.isArray(raw) ? raw : (raw.entries || []);
+        // Map DB format -> PlacedEntry format
+        const entries: PlacedEntry[] = rawEntries.map((e: any) => ({
+          id: e.id,
+          assignmentId: e.assignmentId || e.id,
+          classId: e.assignment?.classId || e.classId,
+          className: e.assignment?.class?.name || e.className || '',
+          subjectId: e.assignment?.subjectId || e.subjectId,
+          subjectName: e.assignment?.subject?.name || e.subjectName || '',
+          teacherId: e.assignment?.teacherId || e.teacherId,
+          teacherName: e.assignment?.teacher?.name || e.teacherName || '',
+          teacher: e.assignment?.teacher ? {
+            shortName: e.assignment.teacher.shortName || '',
+          } : undefined,
+          color: e.assignment?.subject?.color || e.color,
+          roomId: e.roomId,
+          roomName: e.room?.name,
+          dayOfWeek: e.dayOfWeek,
+          period: e.period,
+          isLocked: e.isLocked || false,
+        }));
+        set({ entries });
       }
     } catch (e) {
       console.error(e);
