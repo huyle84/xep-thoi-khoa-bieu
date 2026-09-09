@@ -5,57 +5,55 @@ export async function GET() {
   try {
     const classes = await prisma.class.findMany({
       include: {
+        gradeBlock: true,
         room: true,
-        _count: {
-          select: { assignments: true },
-        },
+        homeroom: { include: { teacher: true } },
+        _count: { select: { assignments: true } },
       },
+      orderBy: [{ gradeBlockId: 'asc' }, { name: 'asc' }],
     });
     return NextResponse.json(classes);
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách lớp học:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi lấy danh sách lớp học' }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ error: 'Lỗi lấy danh sách lớp' }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { name, grade, roomId } = data;
+    const { name, gradeBlockId, capacity } = data;
 
-    if (!name || !grade) {
-      return NextResponse.json({ error: 'Tên và khối lớp là bắt buộc' }, { status: 400 });
+    if (!name || !gradeBlockId) {
+      return NextResponse.json({ error: 'Tên lớp và khối là bắt buộc' }, { status: 400 });
     }
 
-    if (grade < 10 || grade > 12) {
-      return NextResponse.json({ error: 'Khối lớp phải từ 10 đến 12' }, { status: 400 });
+    // Lấy gradeBlock để biết gradeNum
+    const block = await prisma.gradeBlock.findUnique({ where: { id: gradeBlockId } });
+    if (!block) {
+      return NextResponse.json({ error: 'Không tìm thấy khối' }, { status: 404 });
     }
 
-    const existingClass = await prisma.class.findFirst({
-      where: {
-        name,
-        grade,
-      },
+    const existing = await prisma.class.findFirst({
+      where: { name, gradeBlockId },
     });
-
-    if (existingClass) {
-      return NextResponse.json({ error: `Lớp ${name} đã tồn tại trong khối ${grade}` }, { status: 400 });
+    if (existing) {
+      return NextResponse.json({ error: `Lớp ${name} đã tồn tại trong khối này` }, { status: 400 });
     }
 
     const newClass = await prisma.class.create({
       data: {
         name,
-        grade,
-        roomId: roomId || null,
+        grade: block.gradeNum,
+        gradeBlockId,
+        roomId: null,
       },
-      include: {
-        room: true,
-      },
+      include: { gradeBlock: true, room: true },
     });
 
     return NextResponse.json(newClass, { status: 201 });
-  } catch (error) {
-    console.error('Lỗi khi tạo lớp học:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi tạo lớp học' }, { status: 500 });
+  } catch (error: any) {
+    console.error(error);
+    return NextResponse.json({ error: error.message || 'Lỗi tạo lớp' }, { status: 500 });
   }
 }

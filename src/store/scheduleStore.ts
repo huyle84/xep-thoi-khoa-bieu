@@ -29,7 +29,7 @@ interface ScheduleState {
   fetchEntries: (classId?: string, teacherId?: string, week?: number) => Promise<void>;
   moveEntry: (entryId: string, newDay: number, newPeriod: number) => Promise<{ success: boolean; conflicts?: Conflict[] }>;
   swapEntries: (entryAId: string, entryBId: string) => Promise<{ success: boolean; conflicts?: Conflict[] }>;
-  generateSchedule: (options: { weekNumber: number, mode?: string, classId?: string, subjectId?: string, session?: string }) => Promise<void>;
+  generateSchedule: (options: { weekNumber: number, mode?: string, classId?: string, subjectId?: string, session?: string, clearExisting?: boolean }) => Promise<{ success: boolean; message?: string; entryCount?: number }>;
   validateSchedule: () => Promise<void>;
 }
 
@@ -182,12 +182,15 @@ export const useScheduleStore = create<ScheduleState>((set, get) => ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(options)
       });
+      const data = await res.json();
       if (res.ok) {
-        const data = await res.json();
-        set({ entries: data.entries || [] });
+        await get().fetchEntries(undefined, undefined, options.weekNumber);
+        return { success: true, message: data.message, entryCount: data.entries?.length || 0 };
       }
+      return { success: false, message: data.error || 'Có lỗi xảy ra' };
     } catch (e) {
       console.error(e);
+      return { success: false, message: 'Lỗi kết nối' };
     } finally {
       set({ isGenerating: false });
     }

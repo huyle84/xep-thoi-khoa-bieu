@@ -6,7 +6,6 @@ import { Users, Plus, Edit2, Trash2 } from "lucide-react";
 interface ClassItem {
   id: string;
   name: string;
-  capacity: number;
   gradeBlockId: string;
 }
 
@@ -38,7 +37,6 @@ export default function ClassesPage() {
   const [editingClass, setEditingClass] = useState<ClassItem | null>(null);
   
   const [name, setName] = useState("");
-  const [capacity, setCapacity] = useState(40);
   const [gradeBlockId, setGradeBlockId] = useState("");
 
   useEffect(() => {
@@ -81,12 +79,10 @@ export default function ClassesPage() {
     if (cls) {
       setEditingClass(cls);
       setName(cls.name);
-      setCapacity(cls.capacity);
       setGradeBlockId(cls.gradeBlockId || (blocks.length > 0 ? blocks[0].id : ""));
     } else {
       setEditingClass(null);
       setName("");
-      setCapacity(40);
       setGradeBlockId(blocks.length > 0 ? blocks[0].id : "");
     }
     setShowModal(true);
@@ -94,25 +90,34 @@ export default function ClassesPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const payload = { name, capacity, gradeBlockId };
+    const payload = { name, gradeBlockId };
     try {
+      let res;
       if (editingClass) {
-        await fetch(`/api/classes/${editingClass.id}`, {
+        res = await fetch(`/api/classes/${editingClass.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
       } else {
-        await fetch("/api/classes", {
+        res = await fetch("/api/classes", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
       }
+      
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error || "Có lỗi xảy ra");
+        return;
+      }
+      
       setShowModal(false);
       fetchData();
     } catch (error) {
       console.error("Save failed", error);
+      alert("Đã xảy ra lỗi khi lưu");
     }
   };
 
@@ -174,7 +179,6 @@ export default function ClassesPage() {
             <tr>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên lớp</th>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Khối</th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sĩ số</th>
               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">GVCN</th>
               <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Thao tác</th>
             </tr>
@@ -195,7 +199,6 @@ export default function ClassesPage() {
                         </span>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{cls.capacity}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{getTeacherName(cls.id)}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <button onClick={() => openModal(cls)} className="text-indigo-600 hover:text-indigo-900 mr-4"><Edit2 className="h-4 w-4" /></button>
@@ -224,10 +227,6 @@ export default function ClassesPage() {
                   <option value="" disabled>-- Chọn khối --</option>
                   {blocks.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
                 </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Sĩ số dự kiến</label>
-                <input type="number" required value={capacity} onChange={e => setCapacity(parseInt(e.target.value))} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
               </div>
               <div className="mt-5 flex justify-end space-x-3">
                 <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">Hủy</button>

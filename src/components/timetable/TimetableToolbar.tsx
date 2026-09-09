@@ -153,7 +153,15 @@ function AutoScheduleMenu({ generateSchedule, isGenerating, weekNumber }: { gene
       {isOpen && (
         <div className="absolute right-0 mt-2 w-72 bg-white rounded-md shadow-xl z-50 border border-gray-200 p-2 flex flex-col gap-2">
           <button 
-            onClick={() => { setIsOpen(false); generateSchedule({ weekNumber, mode: 'full' }); }}
+            onClick={async () => { 
+              setIsOpen(false); 
+              const result = await generateSchedule({ weekNumber, mode: 'full', clearExisting: true }); 
+              if (result && result.success) {
+                alert(`Đã xếp ${result.entryCount} tiết thành công`);
+              } else if (result) {
+                alert(`Lỗi: ${result.message}`);
+              }
+            }}
             className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100 rounded-md font-medium"
           >
             Auto Toàn trường
@@ -166,10 +174,15 @@ function AutoScheduleMenu({ generateSchedule, isGenerating, weekNumber }: { gene
                 {classes.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
               <button 
-                onClick={() => {
+                onClick={async () => {
                   const val = (document.getElementById('autoClassSelect') as HTMLSelectElement).value;
                   setIsOpen(false);
-                  generateSchedule({ weekNumber, mode: 'class', classId: val });
+                  const result = await generateSchedule({ weekNumber, mode: 'class', classId: val });
+                  if (result && result.success) {
+                    alert(`Đã xếp ${result.entryCount} tiết thành công`);
+                  } else if (result) {
+                    alert(`Lỗi: ${result.message}`);
+                  }
                 }}
                 className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-medium"
               >
@@ -190,11 +203,16 @@ function AutoScheduleMenu({ generateSchedule, isGenerating, weekNumber }: { gene
                   <option value="AFTERNOON">Chiều</option>
                 </select>
                 <button 
-                  onClick={() => {
+                  onClick={async () => {
                     const subj = (document.getElementById('autoSubjectSelect') as HTMLSelectElement).value;
                     const sess = (document.getElementById('autoSessionSelect') as HTMLSelectElement).value;
                     setIsOpen(false);
-                    generateSchedule({ weekNumber, mode: 'subject-session', subjectId: subj, session: sess });
+                    const result = await generateSchedule({ weekNumber, mode: 'subject-session', subjectId: subj, session: sess });
+                    if (result && result.success) {
+                      alert(`Đã xếp ${result.entryCount} tiết thành công`);
+                    } else if (result) {
+                      alert(`Lỗi: ${result.message}`);
+                    }
                   }}
                   className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-medium"
                 >

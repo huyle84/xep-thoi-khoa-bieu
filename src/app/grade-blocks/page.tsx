@@ -55,23 +55,32 @@ export default function GradeBlocksPage() {
     const payload = { name, gradeNum, color };
     
     try {
+      let res;
       if (editingBlock) {
-        await fetch(`/api/grade-blocks/${editingBlock.id}`, {
+        res = await fetch(`/api/grade-blocks/${editingBlock.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
       } else {
-        await fetch("/api/grade-blocks", {
+        res = await fetch("/api/grade-blocks", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
       }
+      
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error || "Có lỗi xảy ra");
+        return;
+      }
+      
       setShowModal(false);
       fetchGradeBlocks();
     } catch (error) {
       console.error("Save failed", error);
+      alert("Đã xảy ra lỗi khi lưu");
     }
   };
 

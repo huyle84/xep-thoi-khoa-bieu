@@ -87,10 +87,15 @@ export async function POST(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   try {
     const data = await req.json();
-    const { id, code, name, shortName, maxPeriodsPerWeek, phone, email } = data;
+    const { id, code, name, shortName, maxPeriodsPerWeek, maxPeriodsPerMorning, maxPeriodsPerAfternoon, phone, email } = data;
 
     if (!id) {
       return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
+
+    let finalShortName = shortName;
+    if (name && shortName === undefined) {
+      finalShortName = generateShortName(name);
     }
 
     const teacher = await prisma.teacher.update({
@@ -98,8 +103,10 @@ export async function PATCH(req: NextRequest) {
       data: {
         ...(code && { code }),
         ...(name && { name }),
-        ...(shortName !== undefined && { shortName }),
+        ...(finalShortName !== undefined && { shortName: finalShortName }),
         ...(maxPeriodsPerWeek !== undefined && { maxPeriodsPerWeek: Number(maxPeriodsPerWeek) }),
+        ...(maxPeriodsPerMorning !== undefined && { maxPeriodsPerMorning: Number(maxPeriodsPerMorning) }),
+        ...(maxPeriodsPerAfternoon !== undefined && { maxPeriodsPerAfternoon: Number(maxPeriodsPerAfternoon) }),
         ...(phone !== undefined && { phone }),
         ...(email !== undefined && { email }),
       },
