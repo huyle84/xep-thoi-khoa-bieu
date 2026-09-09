@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://tkb.com.vn/admin/khoi-mon-tiet -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!--<base href="https://tkb.com.vn/admin/">--><base href=".">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Khối - Môn - Tiết</title>
+		<link rel="shortcut icon" href="https://tkb.com.vn/admin/public/image/favicon.svg">
+		<link rel="stylesheet" type="text/css" href="./Khối - Môn - Tiết_files/fonts.css">
+		<link rel="stylesheet" type="text/css" href="./Khối - Môn - Tiết_files/style.css">
+		<link rel="stylesheet" href="./Khối - Môn - Tiết_files/all.css">
+		<link rel="stylesheet" href="./Khối - Môn - Tiết_files/smooth-scrollbar.css">
+		<link rel="stylesheet" type="text/css" href="./Khối - Môn - Tiết_files/jquery-ui.min.css">
+		<script src="./Khối - Môn - Tiết_files/jquery.js"></script><style>.swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4!important;grid-row:1/4!important;grid-template-columns:1fr 99fr 1fr;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:grid;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;box-sizing:border-box;grid-template-areas:"top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";grid-template-rows:minmax(-webkit-min-content,auto) minmax(-webkit-min-content,auto) minmax(-webkit-min-content,auto);grid-template-rows:minmax(min-content,auto) minmax(min-content,auto) minmax(min-content,auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-bottom-start,.swal2-container.swal2-center-start,.swal2-container.swal2-top-start{grid-template-columns:minmax(0,1fr) auto auto}.swal2-container.swal2-bottom,.swal2-container.swal2-center,.swal2-container.swal2-top{grid-template-columns:auto minmax(0,1fr) auto}.swal2-container.swal2-bottom-end,.swal2-container.swal2-center-end,.swal2-container.swal2-top-end{grid-template-columns:auto auto minmax(0,1fr)}.swal2-container.swal2-top-start>.swal2-popup{align-self:start}.swal2-container.swal2-top>.swal2-popup{grid-column:2;align-self:start;justify-self:center}.swal2-container.swal2-top-end>.swal2-popup,.swal2-container.swal2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}.swal2-container.swal2-center-left>.swal2-popup,.swal2-container.swal2-center-start>.swal2-popup{grid-row:2;align-self:center}.swal2-container.swal2-center>.swal2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}.swal2-container.swal2-center-end>.swal2-popup,.swal2-container.swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}.swal2-container.swal2-bottom-left>.swal2-popup,.swal2-container.swal2-bottom-start>.swal2-popup{grid-column:1;grid-row:3;align-self:end}.swal2-container.swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}.swal2-container.swal2-bottom-end>.swal2-popup,.swal2-container.swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;align-self:end;justify-self:end}.swal2-container.swal2-grow-fullscreen>.swal2-popup,.swal2-container.swal2-grow-row>.swal2-popup{grid-column:1/4;width:100%}.swal2-container.swal2-grow-column>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}.swal2-container.swal2-no-transition{transition:none!important}.swal2-popup{display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0,100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-title{position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 transparent #2778c4 transparent}.swal2-styled{margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px transparent;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}.swal2-styled.swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}.swal2-styled.swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}.swal2-styled.swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}.swal2-styled.swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled:focus{outline:0}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto!important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:2em auto 1em}.swal2-close{z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:0 0;color:#ccc;font-family:serif;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close:focus{outline:0;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em 2em 3px}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px transparent;color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em 2em 3px;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-file{width:75%;margin-right:auto;margin-left:auto;background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{flex-shrink:0;margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto 0}.swal2-validation-message{align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:.25em solid transparent;border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-warning.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-warning.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-i-mark .5s;animation:swal2-animate-i-mark .5s}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-info.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-info.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-i-mark .8s;animation:swal2-animate-i-mark .8s}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-question.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-question.swal2-icon-show .swal2-icon-content{-webkit-animation:swal2-animate-question-mark .8s;animation:swal2-animate-question-mark .8s}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@-webkit-keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@-webkit-keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{background-color:transparent!important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:transparent;pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}</style>
+		<script src="./Khối - Môn - Tiết_files/ckeditor.js"></script><style>.cke{visibility:hidden;}</style>
+		<script src="./Khối - Môn - Tiết_files/ckfinder.js"></script>
+		<script src="./Khối - Môn - Tiết_files/smooth-scrollbar.js"></script>
+		<script src="./Khối - Môn - Tiết_files/jquery-ui.min.js"></script>
+		<script src="./Khối - Môn - Tiết_files/jquery.ui.datepicker-vi-VN.js"></script>
+	<style id="smooth-scrollbar-style">
+[data-scrollbar] {
+  display: block;
+  position: relative;
+}
+
+.scroll-content {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.scrollbar-track {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  background: rgba(222, 222, 222, .75);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 0.5s 0.5s ease-out;
+          transition: opacity 0.5s 0.5s ease-out;
+}
+.scrollbar-track.show,
+.scrollbar-track:hover {
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.scrollbar-track-x {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+}
+.scrollbar-track-y {
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+}
+.scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 4px;
+}
+</style></head>
+	<body p="khoi-mon-tiet">
+		
+	<header>
+		<a href="https://tkb.com.vn/admin/"><img src="./Khối - Môn - Tiết_files/logo.svg"></a>
+		<p>
+			<a href="https://tkb.com.vn/admin/thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+			<i class="fa-solid fa-bars icon-menu"></i>
+		</p>
+	</header>		
+		<aside>
+				
+		<nav>
+			<div class="nav-logo">
+				<a href="https://tkb.com.vn/admin/"><img src="./Khối - Môn - Tiết_files/logo.svg"></a>
+			</div>
+			<div class="nav-scroll" data-scrollbar="true" tabindex="-1" style="overflow: hidden; outline: none;"><div class="scroll-content">
+				<ul>
+				
+				
+												<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-folder-plus"></i>
+						<span>Khai báo</span>
+					</a>
+					<ul>					
+						<li><a href="https://tkb.com.vn/admin/khoi">● Khối</a></li>
+						<li><a href="https://tkb.com.vn/admin/lop">● Lớp học</a></li>
+						<li><a href="https://tkb.com.vn/admin/tiet">● Tiết học</a></li>
+						<li><a href="https://tkb.com.vn/admin/mon-hoc">● Môn học</a></li>
+						<li><a href="https://tkb.com.vn/admin/giao-vien">● Giáo viên</a></li>
+					</ul>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-badge-check"></i>
+						<span>Xếp lịch</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/chu-nhiem-lop">● Giáo viên chủ nhiệm</a></li>
+						<li><a href="https://tkb.com.vn/admin/phan-cong-giang-day">● Phân công giảng dạy</a></li>
+						<li><a href="https://tkb.com.vn/admin/khoi-mon-tiet" class="actived">● Khối - môn - số tiết</a></li>
+						<li><a href="https://tkb.com.vn/admin/phan-tich-phan-cong-chuyen-mon">● Phân tích PCCM <b style="color:red; font-size:11px;">&nbsp;new</b></a></li>
+						<li><a href="https://tkb.com.vn/admin/thoi-khoa-bieu">● Xếp thời khoá biểu</a></li>
+					</ul>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-gear"></i>
+						<span>Cấu hình</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/set-co-so">● Set cơ sở</a></li>
+						<li><a href="https://tkb.com.vn/admin/set-buoi-hoc">● Set buổi học</a></li>
+						<li><a href="https://tkb.com.vn/admin/set-ngay-hoc">● Set ngày học</a></li>
+						<li><a href="https://tkb.com.vn/admin/set-ngay-nghi">● Set tiết nghỉ</a></li>
+						<li><a href="https://tkb.com.vn/admin/set-lop-mon-buoi">● Set lớp môn buổi</a></li>
+						<li><a href="https://tkb.com.vn/admin/tiet-co-dinh">● Môn cố định</a></li>
+						<li><a href="https://tkb.com.vn/admin/gioi-han-so-tiet-day">● Giới hạn số tiết</a></li>
+						<li><a href="https://tkb.com.vn/admin/mon-hoc/gioi-han">● Giới hạn số lớp</a></li>
+					</ul>
+				</li>
+				
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-badge-check"></i>
+						<span>Ghép lớp</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/ghep-lop">● Chọn lớp</a></li>
+						<li><a href="https://tkb.com.vn/admin/tkb-ghep-lop">● TKB ghép lớp</a></li>
+					</ul>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-badge-check"></i>
+						<span>Tách lớp</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/tach-lop">● Chọn lớp</a></li>
+						<li><a href="https://tkb.com.vn/admin/tkb-tach-lop">● TKB tách lớp</a></li>
+					</ul>
+				</li>
+
+				<li class="child-one border only export-tkb">
+					<a href="https://tkb.com.vn/admin/export-file">
+						<span>Xuất excel TKB</span>
+					</a>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-print"></i>
+						<span>In TKB</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/in-thoi-khoa-bieu-hoc-vien">● Học sinh</a></li>
+						<li><a href="https://tkb.com.vn/admin/in-thoi-khoa-bieu-giao-vien">● Giáo viên</a></li>
+					</ul>
+				</li>
+				
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-link-simple"></i>
+						<span>Công khai TKB</span>
+					</a>
+					<ul>
+						<li><a target="_blank" href="https://tkb.com.vn/tkb-hoc-sinh?s=380acaHe4R0JE">● Học sinh</a></li>
+						<li><a target="_blank" href="https://tkb.com.vn/tkb-giao-vien?s=380acaHe4R0JE">● Giáo viên</a></li>
+						<li><a target="_blank" href="https://tkb.com.vn/tkb-toan-truong?s=380acaHe4R0JE">● Toàn trường</a></li>
+						<li><span class="change-link">● Đổi link</span></li>
+					</ul>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-trash-can-undo"></i>
+						<span>Backup TKB</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/backup-tkb">● Sao lưu</a></li>
+						<li><a href="https://tkb.com.vn/admin/restore-tkb">● Khôi phục </a></li>
+						<li><a href="https://tkb.com.vn/admin/reset-thoi-khoa-bieu">● Làm mới</a></li>
+					</ul>
+				</li>
+
+				<li class="child-one border">
+					<a class="toggle" href="https://tkb.com.vn/admin/#">
+						<i class="fa-regular fa-people-roof"></i>
+						<span>Xếp phòng</span>
+					</a>
+					<ul>
+						<li><a href="https://tkb.com.vn/admin/phong">● Phòng</a></li>
+						<li><a href="https://tkb.com.vn/admin/xep-phong">● Sắp xếp</a></li>
+						<!-- <li><a href="lich-thi">&#9679; Lịch thi</a></li> -->
+					</ul>
+				</li>
+				
+				<li class="child-one border only">
+					<a href="https://tkb.com.vn/admin/gia-han-tai-khoan">
+						<i class="fa-regular fa-money-check-dollar"></i>
+						<span>Gia hạn</span>
+					</a>
+				</li>
+
+								
+				<li class="child-one border only">
+					<a target="_blank" href="https://tkb.com.vn/tai-khoan">
+						<i class="fa-light fa-user"></i>
+						<span>Tài khoản</span>
+					</a>
+				</li>
+
+				<li class="child-one border only">
+					<a href="https://tkb.com.vn/admin/thoat">
+						<i class="fa-duotone fa-regular fa-person-running"></i>
+						<span>Thoát hệ thống</span>
+					</a>
+				</li>
+				<li class="child-one border only">
+					<p>&nbsp;</p>
+				</li>
+			</ul>
+			</div><div class="scrollbar-track scrollbar-track-x" style="display: none;"><div class="scrollbar-thumb scrollbar-thumb-x" style="width: 159px; transform: translate3d(0px, 0px, 0px);"></div></div><div class="scrollbar-track scrollbar-track-y" style="display: block;"><div class="scrollbar-thumb scrollbar-thumb-y" style="height: 385.242px; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+		</nav>			<link rel="stylesheet" type="text/css" href="./Khối - Môn - Tiết_files/khoi-mon-tiet-v2.css">
+<style>
+	main table{
+		min-width: auto;
+	}
+	.select-chon-coso-kmt:hover {
+		border-color: #009c4d !important;
+		box-shadow: 0 1px 3px rgba(0, 156, 77, 0.15) !important;
+	}
+	.select-chon-coso-kmt:focus {
+		border-color: #009c4d !important;
+		box-shadow: 0 0 0 3px rgba(0, 156, 77, 0.2) !important;
+	}
+</style>
+<main>
+	<div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+		<h2 style="margin:0; font-size: 16px; font-weight: bold; color: #1e293b; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+			<span>Số tiết quy định</span> 
+			<span style="font-weight: normal; color: #94a3b8;">|</span> 
+			<a href="https://tkb.com.vn/admin/khoi-mon-tiet/import" style="background: #ef4444; color: #fff; padding: 3px 10px; border-radius: 5px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;"><i class="fas fa-file-import"></i> Import nhanh</a> 
+					</h2>
+		<a class="btn-video-guide" data-video="jNKd-IBP0pk" style="cursor: pointer; display: inline-flex; align-items: center; gap: 7px; padding: 7px 18px; background: #17a2b8; color: #fff; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 15px;"><i class="fas fa-play-circle"></i> Hướng dẫn</a>
+	</div>
+
+	<div class="tableFixHead">
+		
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td width="90" style="text-align: center;"><b>6</b> <span class="clear-khoi" khoi="1052" style="color:red;cursor:pointer;">Xóa</span></td>
+						<td width="140"><b>Môn học</b></td>
+						<td width="125" style="text-align: center;"><b>Số tiết / Tuần</b></td>
+						<td colspan="1" class="header-lop-khoi"><b>Số tiết / Tuần / Lớp</b></td>
+					</tr>
+
+					
+						<tr>
+							<td></td>
+							<td>Toán</td>
+							<td><input khoi="1052" mon="3171" item="1" class="khoitiet khoi-1052-item-1 tong-khoi-1052 item-1 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3171" lop="3623" class="kmlt kmlt-1052-3171-3623 kl-1052" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Chào cờ</td>
+							<td><input khoi="1052" mon="6186" item="2" class="khoitiet khoi-1052-item-2 tong-khoi-1052 item-2 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="6186" lop="3623" class="kmlt kmlt-1052-6186-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>SH lớp</td>
+							<td><input khoi="1052" mon="6185" item="3" class="khoitiet khoi-1052-item-3 tong-khoi-1052 item-3 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="6185" lop="3623" class="kmlt kmlt-1052-6185-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Văn</td>
+							<td><input khoi="1052" mon="3172" item="4" class="khoitiet khoi-1052-item-4 tong-khoi-1052 item-4 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3172" lop="3623" class="kmlt kmlt-1052-3172-3623 kl-1052" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>KHTN</td>
+							<td><input khoi="1052" mon="3173" item="5" class="khoitiet khoi-1052-item-5 tong-khoi-1052 item-5 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3173" lop="3623" class="kmlt kmlt-1052-3173-3623 kl-1052" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>C.nghệ</td>
+							<td><input khoi="1052" mon="3174" item="6" class="khoitiet khoi-1052-item-6 tong-khoi-1052 item-6 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3174" lop="3623" class="kmlt kmlt-1052-3174-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Â.nhạc</td>
+							<td><input khoi="1052" mon="3175" item="7" class="khoitiet khoi-1052-item-7 tong-khoi-1052 item-7 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3175" lop="3623" class="kmlt kmlt-1052-3175-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDCD</td>
+							<td><input khoi="1052" mon="3176" item="8" class="khoitiet khoi-1052-item-8 tong-khoi-1052 item-8 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3176" lop="3623" class="kmlt kmlt-1052-3176-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>M. Thuật</td>
+							<td><input khoi="1052" mon="3177" item="9" class="khoitiet khoi-1052-item-9 tong-khoi-1052 item-9 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3177" lop="3623" class="kmlt kmlt-1052-3177-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Tin</td>
+							<td><input khoi="1052" mon="3178" item="10" class="khoitiet khoi-1052-item-10 tong-khoi-1052 item-10 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3178" lop="3623" class="kmlt kmlt-1052-3178-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDĐP</td>
+							<td><input khoi="1052" mon="3179" item="11" class="khoitiet khoi-1052-item-11 tong-khoi-1052 item-11 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3179" lop="3623" class="kmlt kmlt-1052-3179-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>HĐTN-chủ đề</td>
+							<td><input khoi="1052" mon="3180" item="12" class="khoitiet khoi-1052-item-12 tong-khoi-1052 item-12 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3180" lop="3623" class="kmlt kmlt-1052-3180-3623 kl-1052" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDTC</td>
+							<td><input khoi="1052" mon="3181" item="13" class="khoitiet khoi-1052-item-13 tong-khoi-1052 item-13 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3181" lop="3623" class="kmlt kmlt-1052-3181-3623 kl-1052" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBKH</td>
+							<td><input khoi="1052" mon="3182" item="14" class="khoitiet khoi-1052-item-14 tong-khoi-1052 item-14 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3182" lop="3623" class="kmlt kmlt-1052-3182-3623 kl-1052" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBNT</td>
+							<td><input khoi="1052" mon="3183" item="15" class="khoitiet khoi-1052-item-15 tong-khoi-1052 item-15 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3183" lop="3623" class="kmlt kmlt-1052-3183-3623 kl-1052" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBTT</td>
+							<td><input khoi="1052" mon="3184" item="16" class="khoitiet khoi-1052-item-16 tong-khoi-1052 item-16 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3184" lop="3623" class="kmlt kmlt-1052-3184-3623 kl-1052" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>T.Anh</td>
+							<td><input khoi="1052" mon="3185" item="17" class="khoitiet khoi-1052-item-17 tong-khoi-1052 item-17 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3185" lop="3623" class="kmlt kmlt-1052-3185-3623 kl-1052" type="number" value="3"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>TATC</td>
+							<td><input khoi="1052" mon="3186" item="18" class="khoitiet khoi-1052-item-18 tong-khoi-1052 item-18 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="5"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3186" lop="3623" class="kmlt kmlt-1052-3186-3623 kl-1052" type="number" value="5"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Sử-Địa</td>
+							<td><input khoi="1052" mon="3187" item="19" class="khoitiet khoi-1052-item-19 tong-khoi-1052 item-19 k-1052" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3623" data-coso="0" data-lop="3623"><span style="color:#4834d4;">6.1</span> <input khoi="1052" mon="3187" lop="3623" class="kmlt kmlt-1052-3187-3623 kl-1052" type="number" value="3"></td>						</tr>
+						
+					<tr>
+						<td></td>
+						<td>19 môn</td>
+						<td class="total-k-1052">16</td>
+
+						<td class="final-k-l-1052-3623 cell-lop-col col-lop-3623" data-coso="0" data-lop="3623">40</td>					</tr>
+				</tbody>
+			</table>
+			
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td width="90" style="text-align: center;"><b>7</b> <span class="clear-khoi" khoi="1054" style="color:red;cursor:pointer;">Xóa</span></td>
+						<td width="140"><b>Môn học</b></td>
+						<td width="125" style="text-align: center;"><b>Số tiết / Tuần</b></td>
+						<td colspan="1" class="header-lop-khoi"><b>Số tiết / Tuần / Lớp</b></td>
+					</tr>
+
+					
+						<tr>
+							<td></td>
+							<td>Toán</td>
+							<td><input khoi="1054" mon="3171" item="20" class="khoitiet khoi-1054-item-20 tong-khoi-1054 item-20 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3171" lop="3625" class="kmlt kmlt-1054-3171-3625 kl-1054" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Chào cờ</td>
+							<td><input khoi="1054" mon="6186" item="21" class="khoitiet khoi-1054-item-21 tong-khoi-1054 item-21 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="6186" lop="3625" class="kmlt kmlt-1054-6186-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>SH lớp</td>
+							<td><input khoi="1054" mon="6185" item="22" class="khoitiet khoi-1054-item-22 tong-khoi-1054 item-22 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="6185" lop="3625" class="kmlt kmlt-1054-6185-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Văn</td>
+							<td><input khoi="1054" mon="3172" item="23" class="khoitiet khoi-1054-item-23 tong-khoi-1054 item-23 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3172" lop="3625" class="kmlt kmlt-1054-3172-3625 kl-1054" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>KHTN</td>
+							<td><input khoi="1054" mon="3173" item="24" class="khoitiet khoi-1054-item-24 tong-khoi-1054 item-24 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3173" lop="3625" class="kmlt kmlt-1054-3173-3625 kl-1054" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>C.nghệ</td>
+							<td><input khoi="1054" mon="3174" item="25" class="khoitiet khoi-1054-item-25 tong-khoi-1054 item-25 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3174" lop="3625" class="kmlt kmlt-1054-3174-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Â.nhạc</td>
+							<td><input khoi="1054" mon="3175" item="26" class="khoitiet khoi-1054-item-26 tong-khoi-1054 item-26 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3175" lop="3625" class="kmlt kmlt-1054-3175-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDCD</td>
+							<td><input khoi="1054" mon="3176" item="27" class="khoitiet khoi-1054-item-27 tong-khoi-1054 item-27 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3176" lop="3625" class="kmlt kmlt-1054-3176-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>M. Thuật</td>
+							<td><input khoi="1054" mon="3177" item="28" class="khoitiet khoi-1054-item-28 tong-khoi-1054 item-28 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3177" lop="3625" class="kmlt kmlt-1054-3177-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Tin</td>
+							<td><input khoi="1054" mon="3178" item="29" class="khoitiet khoi-1054-item-29 tong-khoi-1054 item-29 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3178" lop="3625" class="kmlt kmlt-1054-3178-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDĐP</td>
+							<td><input khoi="1054" mon="3179" item="30" class="khoitiet khoi-1054-item-30 tong-khoi-1054 item-30 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3179" lop="3625" class="kmlt kmlt-1054-3179-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>HĐTN-chủ đề</td>
+							<td><input khoi="1054" mon="3180" item="31" class="khoitiet khoi-1054-item-31 tong-khoi-1054 item-31 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3180" lop="3625" class="kmlt kmlt-1054-3180-3625 kl-1054" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDTC</td>
+							<td><input khoi="1054" mon="3181" item="32" class="khoitiet khoi-1054-item-32 tong-khoi-1054 item-32 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3181" lop="3625" class="kmlt kmlt-1054-3181-3625 kl-1054" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBKH</td>
+							<td><input khoi="1054" mon="3182" item="33" class="khoitiet khoi-1054-item-33 tong-khoi-1054 item-33 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3182" lop="3625" class="kmlt kmlt-1054-3182-3625 kl-1054" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBNT</td>
+							<td><input khoi="1054" mon="3183" item="34" class="khoitiet khoi-1054-item-34 tong-khoi-1054 item-34 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3183" lop="3625" class="kmlt kmlt-1054-3183-3625 kl-1054" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBTT</td>
+							<td><input khoi="1054" mon="3184" item="35" class="khoitiet khoi-1054-item-35 tong-khoi-1054 item-35 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3184" lop="3625" class="kmlt kmlt-1054-3184-3625 kl-1054" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>T.Anh</td>
+							<td><input khoi="1054" mon="3185" item="36" class="khoitiet khoi-1054-item-36 tong-khoi-1054 item-36 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="0"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3185" lop="3625" class="kmlt kmlt-1054-3185-3625 kl-1054" type="number" value="3"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>TATC</td>
+							<td><input khoi="1054" mon="3186" item="37" class="khoitiet khoi-1054-item-37 tong-khoi-1054 item-37 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="5"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3186" lop="3625" class="kmlt kmlt-1054-3186-3625 kl-1054" type="number" value="5"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Sử-Địa</td>
+							<td><input khoi="1054" mon="3187" item="38" class="khoitiet khoi-1054-item-38 tong-khoi-1054 item-38 k-1054" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-3625" data-coso="0" data-lop="3625"><span style="color:#4834d4;">7.1</span> <input khoi="1054" mon="3187" lop="3625" class="kmlt kmlt-1054-3187-3625 kl-1054" type="number" value="3"></td>						</tr>
+						
+					<tr>
+						<td></td>
+						<td>19 môn</td>
+						<td class="total-k-1054">14</td>
+
+						<td class="final-k-l-1054-3625 cell-lop-col col-lop-3625" data-coso="0" data-lop="3625">40</td>					</tr>
+				</tbody>
+			</table>
+			
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td width="90" style="text-align: center;"><b>8</b> <span class="clear-khoi" khoi="6810" style="color:red;cursor:pointer;">Xóa</span></td>
+						<td width="140"><b>Môn học</b></td>
+						<td width="125" style="text-align: center;"><b>Số tiết / Tuần</b></td>
+						<td colspan="1" class="header-lop-khoi"><b>Số tiết / Tuần / Lớp</b></td>
+					</tr>
+
+					
+						<tr>
+							<td></td>
+							<td>Toán</td>
+							<td><input khoi="6810" mon="3171" item="39" class="khoitiet khoi-6810-item-39 tong-khoi-6810 item-39 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3171" lop="28089" class="kmlt kmlt-6810-3171-28089 kl-6810" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Chào cờ</td>
+							<td><input khoi="6810" mon="6186" item="40" class="khoitiet khoi-6810-item-40 tong-khoi-6810 item-40 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="6186" lop="28089" class="kmlt kmlt-6810-6186-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>SH lớp</td>
+							<td><input khoi="6810" mon="6185" item="41" class="khoitiet khoi-6810-item-41 tong-khoi-6810 item-41 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="6185" lop="28089" class="kmlt kmlt-6810-6185-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Văn</td>
+							<td><input khoi="6810" mon="3172" item="42" class="khoitiet khoi-6810-item-42 tong-khoi-6810 item-42 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3172" lop="28089" class="kmlt kmlt-6810-3172-28089 kl-6810" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>KHTN</td>
+							<td><input khoi="6810" mon="3173" item="43" class="khoitiet khoi-6810-item-43 tong-khoi-6810 item-43 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3173" lop="28089" class="kmlt kmlt-6810-3173-28089 kl-6810" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>C.nghệ</td>
+							<td><input khoi="6810" mon="3174" item="44" class="khoitiet khoi-6810-item-44 tong-khoi-6810 item-44 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3174" lop="28089" class="kmlt kmlt-6810-3174-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Â.nhạc</td>
+							<td><input khoi="6810" mon="3175" item="45" class="khoitiet khoi-6810-item-45 tong-khoi-6810 item-45 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3175" lop="28089" class="kmlt kmlt-6810-3175-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDCD</td>
+							<td><input khoi="6810" mon="3176" item="46" class="khoitiet khoi-6810-item-46 tong-khoi-6810 item-46 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3176" lop="28089" class="kmlt kmlt-6810-3176-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>M. Thuật</td>
+							<td><input khoi="6810" mon="3177" item="47" class="khoitiet khoi-6810-item-47 tong-khoi-6810 item-47 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3177" lop="28089" class="kmlt kmlt-6810-3177-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Tin</td>
+							<td><input khoi="6810" mon="3178" item="48" class="khoitiet khoi-6810-item-48 tong-khoi-6810 item-48 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3178" lop="28089" class="kmlt kmlt-6810-3178-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDĐP</td>
+							<td><input khoi="6810" mon="3179" item="49" class="khoitiet khoi-6810-item-49 tong-khoi-6810 item-49 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3179" lop="28089" class="kmlt kmlt-6810-3179-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>HĐTN-chủ đề</td>
+							<td><input khoi="6810" mon="3180" item="50" class="khoitiet khoi-6810-item-50 tong-khoi-6810 item-50 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3180" lop="28089" class="kmlt kmlt-6810-3180-28089 kl-6810" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDTC</td>
+							<td><input khoi="6810" mon="3181" item="51" class="khoitiet khoi-6810-item-51 tong-khoi-6810 item-51 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3181" lop="28089" class="kmlt kmlt-6810-3181-28089 kl-6810" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBKH</td>
+							<td><input khoi="6810" mon="3182" item="52" class="khoitiet khoi-6810-item-52 tong-khoi-6810 item-52 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3182" lop="28089" class="kmlt kmlt-6810-3182-28089 kl-6810" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBNT</td>
+							<td><input khoi="6810" mon="3183" item="53" class="khoitiet khoi-6810-item-53 tong-khoi-6810 item-53 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3183" lop="28089" class="kmlt kmlt-6810-3183-28089 kl-6810" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBTT</td>
+							<td><input khoi="6810" mon="3184" item="54" class="khoitiet khoi-6810-item-54 tong-khoi-6810 item-54 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3184" lop="28089" class="kmlt kmlt-6810-3184-28089 kl-6810" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>T.Anh</td>
+							<td><input khoi="6810" mon="3185" item="55" class="khoitiet khoi-6810-item-55 tong-khoi-6810 item-55 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3185" lop="28089" class="kmlt kmlt-6810-3185-28089 kl-6810" type="number" value="3"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>TATC</td>
+							<td><input khoi="6810" mon="3186" item="56" class="khoitiet khoi-6810-item-56 tong-khoi-6810 item-56 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="5"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3186" lop="28089" class="kmlt kmlt-6810-3186-28089 kl-6810" type="number" value="5"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Sử-Địa</td>
+							<td><input khoi="6810" mon="3187" item="57" class="khoitiet khoi-6810-item-57 tong-khoi-6810 item-57 k-6810" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28089" data-coso="0" data-lop="28089"><span style="color:#4834d4;">8.1</span> <input khoi="6810" mon="3187" lop="28089" class="kmlt kmlt-6810-3187-28089 kl-6810" type="number" value="3"></td>						</tr>
+						
+					<tr>
+						<td></td>
+						<td>19 môn</td>
+						<td class="total-k-6810">40</td>
+
+						<td class="final-k-l-6810-28089 cell-lop-col col-lop-28089" data-coso="0" data-lop="28089">40</td>					</tr>
+				</tbody>
+			</table>
+			
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td width="90" style="text-align: center;"><b>9</b> <span class="clear-khoi" khoi="8875" style="color:red;cursor:pointer;">Xóa</span></td>
+						<td width="140"><b>Môn học</b></td>
+						<td width="125" style="text-align: center;"><b>Số tiết / Tuần</b></td>
+						<td colspan="1" class="header-lop-khoi"><b>Số tiết / Tuần / Lớp</b></td>
+					</tr>
+
+					
+						<tr>
+							<td></td>
+							<td>Toán</td>
+							<td><input khoi="8875" mon="3171" item="58" class="khoitiet khoi-8875-item-58 tong-khoi-8875 item-58 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3171" lop="28090" class="kmlt kmlt-8875-3171-28090 kl-8875" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Chào cờ</td>
+							<td><input khoi="8875" mon="6186" item="59" class="khoitiet khoi-8875-item-59 tong-khoi-8875 item-59 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="6186" lop="28090" class="kmlt kmlt-8875-6186-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>SH lớp</td>
+							<td><input khoi="8875" mon="6185" item="60" class="khoitiet khoi-8875-item-60 tong-khoi-8875 item-60 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="6185" lop="28090" class="kmlt kmlt-8875-6185-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Văn</td>
+							<td><input khoi="8875" mon="3172" item="61" class="khoitiet khoi-8875-item-61 tong-khoi-8875 item-61 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3172" lop="28090" class="kmlt kmlt-8875-3172-28090 kl-8875" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>KHTN</td>
+							<td><input khoi="8875" mon="3173" item="62" class="khoitiet khoi-8875-item-62 tong-khoi-8875 item-62 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3173" lop="28090" class="kmlt kmlt-8875-3173-28090 kl-8875" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>C.nghệ</td>
+							<td><input khoi="8875" mon="3174" item="63" class="khoitiet khoi-8875-item-63 tong-khoi-8875 item-63 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3174" lop="28090" class="kmlt kmlt-8875-3174-28090 kl-8875" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Â.nhạc</td>
+							<td><input khoi="8875" mon="3175" item="64" class="khoitiet khoi-8875-item-64 tong-khoi-8875 item-64 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3175" lop="28090" class="kmlt kmlt-8875-3175-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDCD</td>
+							<td><input khoi="8875" mon="3176" item="65" class="khoitiet khoi-8875-item-65 tong-khoi-8875 item-65 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3176" lop="28090" class="kmlt kmlt-8875-3176-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>M. Thuật</td>
+							<td><input khoi="8875" mon="3177" item="66" class="khoitiet khoi-8875-item-66 tong-khoi-8875 item-66 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3177" lop="28090" class="kmlt kmlt-8875-3177-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Tin</td>
+							<td><input khoi="8875" mon="3178" item="67" class="khoitiet khoi-8875-item-67 tong-khoi-8875 item-67 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3178" lop="28090" class="kmlt kmlt-8875-3178-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDĐP</td>
+							<td><input khoi="8875" mon="3179" item="68" class="khoitiet khoi-8875-item-68 tong-khoi-8875 item-68 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3179" lop="28090" class="kmlt kmlt-8875-3179-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>HĐTN-chủ đề</td>
+							<td><input khoi="8875" mon="3180" item="69" class="khoitiet khoi-8875-item-69 tong-khoi-8875 item-69 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="1"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3180" lop="28090" class="kmlt kmlt-8875-3180-28090 kl-8875" type="number" value="1"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>GDTC</td>
+							<td><input khoi="8875" mon="3181" item="70" class="khoitiet khoi-8875-item-70 tong-khoi-8875 item-70 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3181" lop="28090" class="kmlt kmlt-8875-3181-28090 kl-8875" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBKH</td>
+							<td><input khoi="8875" mon="3182" item="71" class="khoitiet khoi-8875-item-71 tong-khoi-8875 item-71 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3182" lop="28090" class="kmlt kmlt-8875-3182-28090 kl-8875" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBNT</td>
+							<td><input khoi="8875" mon="3183" item="72" class="khoitiet khoi-8875-item-72 tong-khoi-8875 item-72 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3183" lop="28090" class="kmlt kmlt-8875-3183-28090 kl-8875" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>CLBTT</td>
+							<td><input khoi="8875" mon="3184" item="73" class="khoitiet khoi-8875-item-73 tong-khoi-8875 item-73 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="2"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3184" lop="28090" class="kmlt kmlt-8875-3184-28090 kl-8875" type="number" value="2"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>T.Anh</td>
+							<td><input khoi="8875" mon="3185" item="74" class="khoitiet khoi-8875-item-74 tong-khoi-8875 item-74 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3185" lop="28090" class="kmlt kmlt-8875-3185-28090 kl-8875" type="number" value="3"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>TATC</td>
+							<td><input khoi="8875" mon="3186" item="75" class="khoitiet khoi-8875-item-75 tong-khoi-8875 item-75 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="4"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3186" lop="28090" class="kmlt kmlt-8875-3186-28090 kl-8875" type="number" value="4"></td>						</tr>
+						
+						<tr>
+							<td></td>
+							<td>Sử-Địa</td>
+							<td><input khoi="8875" mon="3187" item="76" class="khoitiet khoi-8875-item-76 tong-khoi-8875 item-76 k-8875" type="text" style="width:40px; height:30px; text-align:center; outline:none;" value="3"></td>
+
+							<td width="120" style="text-align: center; white-space: nowrap;" class="cell-lop-col col-lop-28090" data-coso="0" data-lop="28090"><span style="color:#4834d4;">9.1</span> <input khoi="8875" mon="3187" lop="28090" class="kmlt kmlt-8875-3187-28090 kl-8875" type="number" value="3"></td>						</tr>
+						
+					<tr>
+						<td></td>
+						<td>19 môn</td>
+						<td class="total-k-8875">40</td>
+
+						<td class="final-k-l-8875-28090 cell-lop-col col-lop-28090" data-coso="0" data-lop="28090">40</td>					</tr>
+				</tbody>
+			</table>
+					<div style="height: 60px; width: 100%;"></div>
+	</div>
+</main>
+
+<script>
+	function KoiLopTiet()
+	{
+		let arrKhoiLop = [];
+		$('.kmlt').each(function(row){
+			let tk = parseInt($(this).attr('khoi'));
+			let tl = parseInt($(this).attr('lop'));
+			let tv = parseInt($(this).val()) || 0;
+			let tkl = tk+'-'+tl;
+			if(arrKhoiLop[tkl] === undefined)
+			{
+				arrKhoiLop[tkl] = tv;
+			}
+			else
+			{
+				arrKhoiLop[tkl] += tv;
+			}
+		});
+		for (var j in arrKhoiLop) 
+		{
+			$('.final-k-l-'+j).html(arrKhoiLop[j]);
+		}
+	}
+	KoiLopTiet();
+
+	// Lọc cột lớp theo Cơ sở đã chọn
+	$(document).on('change', '.select-chon-coso-kmt', function() {
+		let selectedCoSo = $(this).val();
+		try {
+			sessionStorage.setItem('kmt_selected_coso', selectedCoSo);
+		} catch(e) {}
+
+		let totalVisibleTables = 0;
+		$('table.table-bordered').each(function() {
+			let $table = $(this);
+			if (selectedCoSo === '0' || selectedCoSo === '' || selectedCoSo === undefined) {
+				$table.find('.cell-lop-col').show();
+				let totalLopIds = {};
+				$table.find('.cell-lop-col').each(function() {
+					let lId = $(this).attr('data-lop');
+					if (lId) totalLopIds[lId] = true;
+				});
+				let totalLop = Object.keys(totalLopIds).length;
+				$table.find('.header-lop-khoi').attr('colspan', totalLop > 0 ? totalLop : 1).show();
+				$table.show();
+				totalVisibleTables++;
+			} else {
+				let visibleLopIds = {};
+				$table.find('.cell-lop-col').each(function() {
+					let cs = $(this).attr('data-coso');
+					let lId = $(this).attr('data-lop');
+					if (cs == selectedCoSo) {
+						$(this).show();
+						if (lId) visibleLopIds[lId] = true;
+					} else {
+						$(this).hide();
+					}
+				});
+				let visibleCount = Object.keys(visibleLopIds).length;
+				let $header = $table.find('.header-lop-khoi');
+				if (visibleCount > 0) {
+					$header.attr('colspan', visibleCount).show();
+					$table.show();
+					totalVisibleTables++;
+				} else {
+					$header.attr('colspan', 1).hide();
+					$table.hide();
+				}
+			}
+		});
+
+		$('.empty-coso-kmt').remove();
+		if (totalVisibleTables === 0) {
+			$('.tableFixHead').prepend('<div class="empty-coso-kmt" style="padding: 30px 20px; text-align: center; color: #64748b; font-size: 14px; font-weight: 500;"><i class="fa fa-info-circle" style="margin-right: 6px; color: #0284c7;"></i>Không có lớp học nào thuộc cơ sở được chọn.</div>');
+		}
+	});
+
+	// Khôi phục cơ sở đã chọn từ sessionStorage khi tải trang
+	$(document).ready(function() {
+		try {
+			let savedCoSo = sessionStorage.getItem('kmt_selected_coso');
+			if (savedCoSo && $('.select-chon-coso-kmt').find('option[value="' + savedCoSo + '"]').length) {
+				$('.select-chon-coso-kmt').val(savedCoSo).trigger('change');
+			}
+		} catch(e) {}
+	});
+
+	$('.clear-khoi').click(function(){
+		let khoi = $(this).attr('khoi');
+		Swal.fire({
+			icon: 'warning',
+			html: 'Bạn chắc chắn xóa? Số tiết khối sẽ xóa hết',
+			showCancelButton: true
+		}).then(function(result){
+			if (result.isConfirmed) 
+			{
+				$(".loading").css('display', 'flex');
+				$.ajax({
+					method: "POST",
+					data: {khoi:khoi},
+					url: "view/khoi-mon-tiet/del-khoi.php",
+					success:function(xoaphancong)
+					{
+						try {
+							let info = JSON.parse(xoaphancong);
+							if(info.status == 'fail')
+							{
+								Swal.fire({
+									icon: 'error',
+									text: info.mess
+								});
+							}
+							else
+							{
+								window.location.reload();
+							}
+						} catch(e) {}
+						$(".loading").css('display', 'none');
+					},
+					error: function() {
+						$(".loading").css('display', 'none');
+					}
+				});
+			} 
+		});
+	});
+	
+	// Khởi tạo giá trị ban đầu cho các input để so sánh khi thay đổi
+	$('.khoitiet, .kmlt').each(function() {
+		$(this).data('old-val', $(this).val());
+	});
+
+	// Lưu giá trị cũ và bôi đen khi focus
+	$(document).on('focus', '.khoitiet, .kmlt', function() {
+		$(this).data('old-val', $(this).val());
+		$(this).select();
+	});
+	
+	$(document).on('keydown', '.kmlt', function(e) {
+		if (e.which === 13 || e.key === 'Enter') {
+			e.preventDefault();
+			$(this).trigger('change');
+		}
+	});
+
+	$(document).on('change', '.kmlt', function() {
+		let $this = $(this);
+		let khoi = parseInt($this.attr('khoi'));
+		let mon = parseInt($this.attr('mon'));
+		let lop = parseInt($this.attr('lop'));
+		let rawVal = $this.val().trim();
+		let oldVal = parseInt($this.data('old-val'));
+
+		if (rawVal === '' || isNaN(rawVal) || parseInt(rawVal) < 0) {
+			$this.val(isNaN(oldVal) ? 0 : oldVal);
+			return;
+		}
+
+		let tiet = parseInt(rawVal);
+		if (tiet === oldVal) {
+			return;
+		}
+
+		$this.data('old-val', tiet);
+		$('.loading').css('display', 'flex');
+		$.ajax({
+			method: 'POST',
+			data: {khoi:khoi, mon:mon, lop:lop, tiet:tiet},
+			url:'view/khoi-mon-tiet/edit-lop.php',
+			success:function(dulieu)
+			{
+				try {
+					let info = JSON.parse(dulieu);
+					if(info.status == 'fail')
+					{
+						Swal.fire({
+							icon: 'error',
+							text: info.mess
+						});
+						$this.val(oldVal).data('old-val', oldVal);
+					}
+					else
+					{
+						KoiLopTiet();
+						$this.prev('span').css('color', tiet > 0 ? '#4834d4' : 'red');
+						$this.css({'background':'#dcfce7'});
+						setTimeout(function() {
+							$this.css({'background':''});
+						}, 600);
+					}
+				} catch(e) {}
+				$('.loading').css('display', 'none');
+			},
+			error: function() {
+				$('.loading').css('display', 'none');
+				$this.val(oldVal).data('old-val', oldVal);
+			}
+		});
+	});
+
+	$(document).on('keydown', '.khoitiet', function(e) {
+		if (e.which === 13 || e.key === 'Enter') {
+			e.preventDefault();
+			let $this = $(this);
+			let khoi = parseInt($this.attr('khoi'));
+			let mon = parseInt($this.attr('mon'));
+			let item = parseInt($this.attr('item'));
+			let rawVal = $this.val().trim();
+			let oldVal = parseInt($this.data('old-val'));
+
+			if (rawVal === '' || isNaN(rawVal) || parseInt(rawVal) < 0) {
+				$this.val(isNaN(oldVal) ? 0 : oldVal);
+				let nextItem = item + 1;
+				if ($('.item-' + nextItem).length) {
+					$('.item-' + nextItem).focus().select();
+				}
+				return;
+			}
+
+			let tiet = parseInt(rawVal);
+			if (tiet !== oldVal) {
+				$this.data('old-val', tiet);
+				KhoiTiet(khoi, mon, tiet, item, true);
+			} else {
+				let nextItem = item + 1;
+				if ($('.item-' + nextItem).length) {
+					$('.item-' + nextItem).focus().select();
+				}
+			}
+		}
+	});
+
+	$(document).on('change', '.khoitiet', function() {
+		let $this = $(this);
+		let khoi = parseInt($this.attr('khoi'));
+		let mon = parseInt($this.attr('mon'));
+		let item = parseInt($this.attr('item'));
+		let rawVal = $this.val().trim();
+		let oldVal = parseInt($this.data('old-val'));
+
+		if (rawVal === '' || isNaN(rawVal) || parseInt(rawVal) < 0) {
+			$this.val(isNaN(oldVal) ? 0 : oldVal);
+			return;
+		}
+
+		let tiet = parseInt(rawVal);
+		if (tiet === oldVal) {
+			return;
+		}
+
+		$this.data('old-val', tiet);
+		KhoiTiet(khoi, mon, tiet, item, false);
+	});
+
+	function KhoiTiet(khoi, mon, tiet, item, shouldAdvance)
+	{
+		$('.loading').css('display', 'flex');
+		$.ajax({
+			method: 'POST',
+			data: {khoi:khoi, mon:mon, tiet:tiet},
+			url:'view/khoi-mon-tiet/edit.php',
+			success:function(dulieu)
+			{
+				try {
+					let info = JSON.parse(dulieu);
+					if(info.status == 'fail')
+					{
+						Swal.fire({
+							icon: 'error',
+							text: info.mess
+						});
+					}
+					else
+					{
+						if(info.lop && info.lop.length > 0)
+						{
+							$.each(info.lop, function(key, itemLop){
+								let $inpLop = $(`.kmlt-${khoi}-${mon}-${itemLop}`);
+								$inpLop.val(tiet).data('old-val', tiet);
+								$inpLop.prev('span').css('color', tiet > 0 ? '#4834d4' : 'red');
+								if(info.total && info.total[khoi] && info.total[khoi][itemLop]) {
+									$(`.total-k-l-${khoi}-${itemLop} b`).html(info.total[khoi][itemLop]);
+								}
+							});
+						}
+
+						let soTietDong = 0;
+						$('.k-'+khoi).each(function(index){
+							soTietDong += parseInt($(this).val()) || 0;	
+						});
+						$('.total-k-'+khoi).html(soTietDong);
+
+						let arrLop = [];
+						$('.kl-'+khoi).each(function(row){
+							let k = parseInt($(this).attr('khoi'));
+							let l = parseInt($(this).attr('lop'));
+							let v = parseInt($(this).val()) || 0;
+							let kl = k+'-'+l;
+							if(arrLop[kl] === undefined)
+							{
+								arrLop[kl] = v;
+							}
+							else
+							{
+								arrLop[kl] += v;
+							}
+						});
+						for (var i in arrLop) 
+						{
+							$('.final-k-l-'+i).html(arrLop[i]);
+						}
+
+						let $curItem = $('.item-'+item);
+						$curItem.css({'background':'#dcfce7'});
+						setTimeout(function() {
+							$curItem.css({'background':''});
+						}, 600);
+
+						if (shouldAdvance) {
+							let nextItem = item + 1;
+							if($(`.item-${nextItem}`).length) {
+								$(`.item-${nextItem}`).focus().select();
+							}
+						}
+					}
+				} catch(e) {}
+				$('.loading').css('display', 'none');
+			},
+			error: function() {
+				$('.loading').css('display', 'none');
+			}
+		});
+	}
+
+	$(document).on('click', '.btn-video-guide', function(e) {
+		e.preventDefault();
+		let videoId = $(this).attr('data-video');
+		if (videoId) {
+			Swal.fire({
+				title: 'Hướng dẫn Số tiết quy định',
+				html: `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+					<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+				</div>`,
+				width: 800,
+				showCloseButton: true,
+				showConfirmButton: false,
+				customClass: {
+					popup: 'swal2-video-popup'
+				}
+			});
+		}
+	});
+
+	// Tính năng Kéo / Vuốt cuộn ngang dọc (Drag-to-Scroll) cho Tablet & Desktop
+	(function initDragScroll() {
+		const slider = document.querySelector('.tableFixHead');
+		if (!slider) return;
+
+		let isDown = false;
+		let startX, startY;
+		let scrollLeft, scrollTop;
+		let isDragging = false;
+
+		slider.addEventListener('mousedown', (e) => {
+			// Không kích hoạt drag khi click vào input, button, thẻ a, hoặc nút xóa
+			if (['INPUT', 'BUTTON', 'A', 'SELECT', 'TEXTAREA'].includes(e.target.tagName) || e.target.classList.contains('clear-khoi')) {
+				return;
+			}
+			isDown = true;
+			isDragging = false;
+			slider.classList.add('is-dragging');
+			startX = e.pageX - slider.offsetLeft;
+			startY = e.pageY - slider.offsetTop;
+			scrollLeft = slider.scrollLeft;
+			scrollTop = slider.scrollTop;
+		});
+
+		window.addEventListener('mouseup', () => {
+			if (isDown) {
+				isDown = false;
+				slider.classList.remove('is-dragging');
+				setTimeout(() => { isDragging = false; }, 50);
+			}
+		});
+
+		slider.addEventListener('mousemove', (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - slider.offsetLeft;
+			const y = e.pageY - slider.offsetTop;
+			const walkX = (x - startX) * 1.5;
+			const walkY = (y - startY) * 1.5;
+			slider.scrollLeft = scrollLeft - walkX;
+			slider.scrollTop = scrollTop - walkY;
+			isDragging = true;
+		});
+
+		slider.addEventListener('click', (e) => {
+			if (isDragging) {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+		}, true);
+	})();
+</script>
+		</aside>
+		<section class="trung-lap">
+			<div class="center">
+				<i class="fa-solid fa-xmark close-trung" title="Đóng"></i>
+				<div class="owl-carousel owl-theme"></div>
+			</div>
+		</section>
+		<div class="loading"><img src="./Khối - Môn - Tiết_files/loading.svg"></div>
+		<script src="./Khối - Môn - Tiết_files/app.js"></script>
+	
+	
+	</body></html>

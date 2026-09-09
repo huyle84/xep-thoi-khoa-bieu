@@ -1,0 +1,224 @@
+@media all and (min-width: 0) {
+	/* Khóa cứng cuộn body, cuộn độc lập bên trong tableFixHead */
+	body[p="khoi-mon-tiet"], html {
+		height: 100vh;
+		overflow: hidden !important;
+	}
+
+	body[p="khoi-mon-tiet"] aside {
+		width: 100% !important;
+		height: calc(100vh - 60px) !important;
+		max-height: calc(100vh - 60px) !important;
+		display: flex !important;
+		position: relative !important;
+		overflow: hidden !important;
+		box-sizing: border-box !important;
+	}
+
+	body[p="khoi-mon-tiet"] main {
+		width: 100% !important;
+		max-width: 100% !important;
+		height: calc(100vh - 60px) !important;
+		max-height: calc(100vh - 60px) !important;
+		display: flex !important;
+		flex-direction: column !important;
+		overflow: hidden !important;
+		box-sizing: border-box !important;
+		padding: 10px 10px 10px 10px !important;
+		margin: 0 !important;
+	}
+
+	main h1 {
+		font-size: 16px;
+		padding-bottom: 10px;
+	}
+
+	main h1 a {
+		text-decoration: none;
+		color: red;
+	}
+
+	.tableFixHead {
+		overflow: auto !important;
+		flex: 1 1 auto !important;
+		height: calc(100% - 55px) !important;
+		max-height: calc(100% - 55px) !important;
+		width: 100%;
+		box-sizing: border-box !important;
+		padding-bottom: 40px !important;
+		cursor: grab;
+		cursor: -webkit-grab;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: pan-x pan-y;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		scrollbar-color: #cbd5e1 #f1f5f9;
+	}
+
+	.tableFixHead::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	.tableFixHead::-webkit-scrollbar-track {
+		background: #f1f5f9;
+		border-radius: 4px;
+	}
+
+	.tableFixHead::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 4px;
+		transition: background 0.2s;
+	}
+
+	.tableFixHead::-webkit-scrollbar-thumb:hover {
+		background: #94a3b8;
+	}
+
+	.tableFixHead.is-dragging {
+		cursor: grabbing !important;
+		cursor: -webkit-grabbing !important;
+		user-select: none !important;
+	}
+
+	.tableFixHead table {
+		border-collapse: collapse;
+		margin-bottom: 30px !important;
+	}
+
+	.tableFixHead table:last-of-type {
+		margin-bottom: 50px !important;
+	}
+
+	.tableFixHead table tr:last-child td {
+		font-weight: bold !important;
+		background: #edf2f7 !important;
+		border-top: 2px solid #4a5568 !important;
+	}
+
+	.tableFixHead table tr:nth-child(1) {
+		position: sticky;
+		top: 0;
+		z-index: 2;
+	}
+
+	.tableFixHead table tr:nth-child(1) td:first-child {
+		z-index: 3;
+	}
+
+	.tableFixHead table tr:nth-child(1) td:nth-child(2) {
+		z-index: 3;
+	}
+
+	.tableFixHead table tr:nth-child(2n+1) td {
+		background: #f9f9f9;
+	}
+
+	.tableFixHead table tr:nth-child(2n) td {
+		background-color: #FFF;
+	}
+
+	.tableFixHead table tr:nth-child(1) td {
+		white-space: nowrap;
+	}
+
+	.tableFixHead table tr td {
+		padding: 6px 10px;
+		vertical-align: middle;
+		font-size: 13px;
+	}
+
+	.tableFixHead table tr td:first-child {
+		position: sticky;
+		left: 0;
+		z-index: 1;
+		width: 90px;
+		min-width: 90px;
+		max-width: 90px;
+		text-align: center;
+	}
+
+	.tableFixHead table tr td:nth-child(2) {
+		position: sticky;
+		left: 90px;
+		z-index: 1;
+		width: 140px;
+		min-width: 140px;
+		max-width: 140px;
+	}
+
+	.tableFixHead table tr td:nth-child(3) {
+		width: 125px;
+		min-width: 125px;
+		max-width: 125px;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+	.tableFixHead table td input,
+	.tableFixHead table td a,
+	.tableFixHead table td span.clear-khoi {
+		cursor: pointer;
+		user-select: auto;
+	}
+
+	.tableFixHead table tr td input[type=number],
+	.tableFixHead table tr td input[type=text] {
+		width: 42px;
+		height: 28px;
+		outline: none;
+		border: 1px solid #cbd5e1;
+		border-radius: 4px;
+		text-align: center;
+		font-weight: 600;
+		box-sizing: border-box;
+		cursor: text;
+		transition: border-color 0.2s;
+	}
+
+	.tableFixHead table tr td input:focus {
+		border-color: #17a2b8;
+		box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.2);
+	}
+}
+
+@media all and (min-width: 996px) {
+	body[p="khoi-mon-tiet"] aside {
+		width: 100% !important;
+		height: 100vh !important;
+		max-height: 100vh !important;
+		display: flex !important;
+		justify-content: flex-end !important;
+		overflow: hidden !important;
+	}
+
+	body[p="khoi-mon-tiet"] nav {
+		left: 0 !important;
+		position: fixed !important;
+		height: 100vh !important;
+		z-index: 100 !important;
+	}
+
+	body[p="khoi-mon-tiet"] main {
+		width: calc(100% - 160px) !important;
+		max-width: calc(100% - 160px) !important;
+		margin-left: 160px !important;
+		height: 100vh !important;
+		max-height: 100vh !important;
+		display: flex !important;
+		flex-direction: column !important;
+		overflow: hidden !important;
+		box-sizing: border-box !important;
+		padding: 10px 10px 10px 10px !important;
+	}
+
+	.tableFixHead {
+		width: 100%;
+		flex: 1 1 auto !important;
+		height: calc(100% - 55px) !important;
+		max-height: calc(100% - 55px) !important;
+		padding-bottom: 40px !important;
+		box-sizing: border-box !important;
+	}
+}

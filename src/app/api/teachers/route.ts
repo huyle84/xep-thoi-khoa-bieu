@@ -47,7 +47,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { code, name, maxPeriodsPerWeek } = data;
+    const { code, name, shortName, maxPeriodsPerWeek } = data;
 
     if (!code || !name) {
       return NextResponse.json({ error: 'Mã và tên giáo viên là bắt buộc' }, { status: 400 });
@@ -66,6 +66,7 @@ export async function POST(req: NextRequest) {
       data: {
         code,
         name,
+        shortName: shortName || "",
         maxPeriodsPerWeek: maxPeriodsPerWeek || 30,
       },
     });
@@ -74,5 +75,33 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('Lỗi khi tạo giáo viên:', error);
     return NextResponse.json({ error: 'Đã xảy ra lỗi khi tạo giáo viên' }, { status: 500 });
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    const data = await req.json();
+    const { id, code, name, shortName, maxPeriodsPerWeek, maxPeriodsPerMorning, maxPeriodsPerAfternoon } = data;
+
+    if (!id) {
+      return NextResponse.json({ error: 'Thiếu ID giáo viên' }, { status: 400 });
+    }
+
+    const teacher = await prisma.teacher.update({
+      where: { id },
+      data: {
+        ...(code && { code }),
+        ...(name && { name }),
+        ...(shortName !== undefined && { shortName }),
+        ...(maxPeriodsPerWeek && { maxPeriodsPerWeek }),
+        ...(maxPeriodsPerMorning !== undefined && { maxPeriodsPerMorning }),
+        ...(maxPeriodsPerAfternoon !== undefined && { maxPeriodsPerAfternoon }),
+      },
+    });
+
+    return NextResponse.json(teacher);
+  } catch (error) {
+    console.error('Lỗi khi cập nhật giáo viên:', error);
+    return NextResponse.json({ error: 'Đã xảy ra lỗi khi cập nhật giáo viên' }, { status: 500 });
   }
 }

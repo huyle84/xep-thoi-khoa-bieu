@@ -1,0 +1,211 @@
+@media all and (min-width: 0) {
+	/* Khóa cứng cuộn body */
+	body, html {
+		height: 100vh;
+		height: 100dvh;
+		overflow: hidden !important;
+	}
+
+	aside {
+		width: 100% !important;
+		height: calc(100vh - 60px) !important;
+		height: calc(100dvh - 60px) !important;
+		max-height: calc(100dvh - 60px) !important;
+		display: flex !important;
+		position: relative !important;
+		overflow: hidden !important;
+		box-sizing: border-box !important;
+	}
+
+	main {
+		width: 100% !important;
+		max-width: 100% !important;
+		height: calc(100vh - 60px) !important;
+		height: calc(100dvh - 60px) !important;
+		max-height: calc(100dvh - 60px) !important;
+		overflow: hidden !important;
+		padding: 8px 10px !important;
+		box-sizing: border-box !important;
+		margin: 0 !important;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	/* Khối blog cuộn độc lập */
+	section.blog {
+		background: #FFF;
+		border-radius: 6px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+		padding: 15px 20px 100px 20px !important;
+		box-sizing: border-box !important;
+		height: 100% !important;
+		max-height: 100% !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		scrollbar-color: #cbd5e1 #f1f5f9;
+		position: relative;
+	}
+
+	section.blog::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	section.blog::-webkit-scrollbar-track {
+		background: #f1f5f9;
+		border-radius: 4px;
+	}
+
+	section.blog::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 4px;
+	}
+
+	section.blog h2 {
+		color: #1e293b;
+		margin: 0 0 15px 0;
+		font-size: 16px;
+		font-weight: bold;
+		border-bottom: 2px solid #f1f5f9;
+		padding-bottom: 8px;
+	}
+
+	.wrap-flex {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.group-title {
+		font-size: 14px;
+		font-weight: bold;
+		color: #334155;
+		margin-bottom: 8px;
+	}
+
+	.group-checkbox {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px 20px;
+	}
+
+	.item-checkbox {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 14px;
+		color: #1e293b;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.item-checkbox input[type="checkbox"],
+	.item-checkbox input[type="radio"] {
+		width: 16px;
+		height: 16px;
+		cursor: pointer;
+		accent-color: #009c4d;
+	}
+
+	.btn-submit-wrap {
+		margin-top: 25px;
+		padding-top: 15px;
+		border-top: 1px solid #f1f5f9;
+		display: flex;
+		gap: 12px;
+	}
+
+	.btn-save {
+		background-color: #009c4d;
+		color: #fff;
+		border: none;
+		padding: 8px 22px;
+		font-size: 14px;
+		font-weight: bold;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.2s;
+	}
+
+	.btn-save:hover {
+		background-color: #00803e;
+	}
+
+	.btn-cancel {
+		background-color: #94a3b8;
+		color: #fff;
+		border: none;
+		padding: 8px 22px;
+		font-size: 14px;
+		font-weight: bold;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.btn-cancel:hover {
+		background-color: #64748b;
+	}
+}
+
+/* Mobile Landscape (< 500px height) */
+@media all and (max-height: 500px) {
+	aside {
+		height: calc(100vh - 42px) !important;
+		height: calc(100dvh - 42px) !important;
+		max-height: calc(100dvh - 42px) !important;
+	}
+
+	main {
+		height: calc(100vh - 42px) !important;
+		height: calc(100dvh - 42px) !important;
+		max-height: calc(100dvh - 42px) !important;
+		padding: 4px 8px !important;
+	}
+
+	section.blog {
+		padding: 10px 15px 90px 15px !important;
+	}
+}
+
+@media all and (min-width: 996px) {
+	aside {
+		width: 100% !important;
+		height: 100vh !important;
+		height: 100dvh !important;
+		max-height: 100dvh !important;
+		display: flex !important;
+		justify-content: flex-end !important;
+		overflow: hidden !important;
+	}
+
+	nav {
+		left: 0 !important;
+		position: fixed !important;
+		height: 100vh !important;
+		height: 100dvh !important;
+		z-index: 100 !important;
+	}
+
+	main {
+		width: calc(100% - 160px) !important;
+		max-width: calc(100% - 160px) !important;
+		margin-left: 160px !important;
+		height: 100vh !important;
+		height: 100dvh !important;
+		max-height: 100dvh !important;
+		overflow: hidden !important;
+		padding: 10px !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	section.blog {
+		height: 100% !important;
+		max-height: 100% !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+	}
+}

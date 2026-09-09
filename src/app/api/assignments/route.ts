@@ -8,12 +8,35 @@ export async function GET() {
         class: true,
         subject: true,
         teacher: true,
-        _count: {
-          select: { scheduleEntries: true },
+      },
+    });
+
+    const teachers = await prisma.teacher.findMany({
+      include: {
+        assignments: {
+          select: {
+            periodsPerWeek: true,
+          },
         },
       },
     });
-    return NextResponse.json(assignments);
+
+    const teachersWithTotalPeriods = teachers.map((teacher) => {
+      const totalPeriodsPerWeek = teacher.assignments.reduce(
+        (total, assignment) => total + assignment.periodsPerWeek,
+        0
+      );
+      const { assignments, ...rest } = teacher;
+      return {
+        ...rest,
+        totalPeriodsPerWeek,
+      };
+    });
+
+    return NextResponse.json({
+      assignments,
+      teachers: teachersWithTotalPeriods,
+    });
   } catch (error) {
     console.error('Lỗi khi lấy danh sách phân công:', error);
     return NextResponse.json({ error: 'Đã xảy ra lỗi khi lấy danh sách phân công' }, { status: 500 });
@@ -23,71 +46,59 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { classId, subjectId, teacherId } = data;
+    const { classId, subjectId, teacherId, periodsPerWeek } = data;
 
-    if (!classId || !subjectId || !teacherId) {
-      return NextResponse.json({ error: 'Thiếu thông tin phân công' }, { status: 400 });
+    if (!classId || !subjectId || !teacherId || periodsPerWeek === undefined) {
+      return NextResponse.json({ error: 'Thiếu thông tin bắt buộc' }, { status: 400 });
     }
 
-    const [classData, subject, teacher] = await Promise.all([
-      prisma.class.findUnique({ where: { id: classId } }),
-      prisma.subject.findUnique({ where: { id: subjectId } }),
-      prisma.teacher.findUnique({ 
-        where: { id: teacherId },
-        include: { assignments: { include: { subject: true } } }
-      }),
-    ]);
-
-    if (!classData || !subject || !teacher) {
-      return NextResponse.json({ error: 'Lớp, môn học hoặc giáo viên không tồn tại' }, { status: 400 });
-    }
-
-    // Check uniqueness
-    const existingAssignment = await prisma.teachingAssignment.findUnique({
+    const assignment = await prisma.teachingAssignment.upsert({
       where: {
         classId_subjectId: {
           classId,
           subjectId,
         },
       },
-    });
-
-    if (existingAssignment) {
-      return NextResponse.json({ error: 'Môn học này đã được phân công cho lớp này' }, { status: 400 });
-    }
-
-    // Calculate teacher total periods
-    const currentTotalPeriods = teacher.assignments.reduce(
-      (total, a) => total + a.subject.periodsPerWeek,
-      0
-    );
-
-    const willExceedMax = currentTotalPeriods + subject.periodsPerWeek > teacher.maxPeriodsPerWeek;
-
-    const assignment = await prisma.teachingAssignment.create({
-      data: {
+      update: {
+        teacherId,
+        periodsPerWeek,
+      },
+      create: {
         classId,
         subjectId,
         teacherId,
-        periodsPerWeek: subject.periodsPerWeek,
+        periodsPerWeek,
       },
       include: {
         class: true,
         subject: true,
         teacher: true,
-      }
+      },
     });
-
-    if (willExceedMax) {
-      return NextResponse.json({
-        ...assignment,
-        warning: 'Cảnh báo: Giáo viên này đã vượt quá số tiết tối đa/tuần'
-      }, { status: 201 });
-    }
 
     return NextResponse.json(assignment, { status: 201 });
   } catch (error) {
-    console.error('Lỗi khi tạo phân công:', error);
-    return NextResponse.json({ error: 'Đã xảy ra lỗi khi tạo phân công' }, { status: 500 });
+    console.error('Lỗi khi phân công giảng dạy:', error);
+    return NextResponse.json({ error: 'Đã xảy ra lỗi khi phân công' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const data = await req.json();
+    const { id } = data;
+
+    if (!id) {
+      return NextResponse.json({ error: 'Thiếu ID phân công' }, { status: 400 });
+    }
+
+    await prisma.teachingAssignment.delete({
+      where: { id },
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Lỗi khi xóa phân công:', error);
+    return NextResponse.json({ error: 'Đã xảy ra lỗi khi xóa phân công' }, { status: 500 });
   }
 }

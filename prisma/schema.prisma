@@ -73,6 +73,8 @@ model GradeBlock {
   order    Int     @default(0)
   color    String  @default("#3B82F6")
   classes  Class[]
+  subjectPeriods SubjectPeriod[]
+  fixedPeriods   FixedPeriod[]
 }
 
 model PeriodConfig {
@@ -97,21 +99,26 @@ model Subject {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   assignments      TeachingAssignment[]
+  subjectPeriods   SubjectPeriod[]
+  fixedPeriods     FixedPeriod[]
 }
 
 model Teacher {
-  id                String   @id @default(cuid())
-  code              String   @unique
-  name              String
-  maxPeriodsPerWeek Int      @default(20)
-  phone             String   @default("")
-  email             String   @default("")
-  avatarUrl         String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  assignments       TeachingAssignment[]
-  busySlots         TeacherBusySlot[]
-  homeroomClasses   HomeroomAssignment[]
+  id                     String   @id @default(cuid())
+  code                   String   @unique
+  name                   String
+  shortName              String   @default("")
+  maxPeriodsPerWeek      Int      @default(20)
+  maxPeriodsPerMorning   Int      @default(4)
+  maxPeriodsPerAfternoon Int      @default(4)
+  phone                  String   @default("")
+  email                  String   @default("")
+  avatarUrl              String?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  assignments            TeachingAssignment[]
+  busySlots              TeacherBusySlot[]
+  homeroomClasses        HomeroomAssignment[]
 }
 
 model TeacherBusySlot {
@@ -185,4 +192,25 @@ model ScheduleEntry {
   assignment   TeachingAssignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
   room         Room?              @relation(fields: [roomId], references: [id])
   @@unique([dayOfWeek, period, assignmentId, weekNumber])
+}
+
+model SubjectPeriod {
+  id             String  @id @default(cuid())
+  subjectId      String
+  gradeBlockId   String
+  periodsPerWeek Int     @default(0)
+  subject        Subject    @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  gradeBlock     GradeBlock @relation(fields: [gradeBlockId], references: [id], onDelete: Cascade)
+  @@unique([subjectId, gradeBlockId])
+}
+
+model FixedPeriod {
+  id           String @id @default(cuid())
+  subjectId    String
+  gradeBlockId String
+  dayOfWeek    Int    // 2-7
+  period       Int    // 1-based
+  subject      Subject    @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  gradeBlock   GradeBlock @relation(fields: [gradeBlockId], references: [id], onDelete: Cascade)
+  @@unique([gradeBlockId, dayOfWeek, period])
 }

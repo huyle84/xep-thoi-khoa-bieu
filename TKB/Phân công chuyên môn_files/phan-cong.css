@@ -1,0 +1,216 @@
+@media all and (min-width: 0) {
+	body[p="phan-cong-giang-day"] main {
+		padding-bottom: 60px;
+	}
+
+	.gv-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		width: 100%;
+		box-sizing: border-box;
+		gap: 8px 16px;
+		margin-bottom: 10px;
+	}
+
+	.gv-top label {
+		cursor: pointer;
+		font-size: 13px;
+		display: inline-flex !important;
+		align-items: center !important;
+		gap: 6px;
+		line-height: 1.5;
+	}
+
+	.gv-top input[type="radio"],
+	.gv-top input[type="checkbox"],
+	.giao-vien input[type="radio"],
+	.giao-vien input[type="checkbox"] {
+		width: 16px !important;
+		height: 16px !important;
+		min-width: 16px !important;
+		min-height: 16px !important;
+		margin: 0 4px 0 0 !important;
+		padding: 0 !important;
+		cursor: pointer;
+		vertical-align: middle;
+		flex-shrink: 0;
+		accent-color: #009c4d;
+		box-sizing: border-box;
+	}
+
+	.gv-top .tim-giao-vien {
+		width: 160px;
+		position: relative;
+	}
+
+	.gv-top .tim-giao-vien input[type=text] {
+		height: 32px;
+		width: 100%;
+		padding: 0 10px;
+		outline: none;
+		border: 1px solid #cbd5e1;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	.gv-top .tim-giao-vien .load-giao-vien {
+		position: absolute;
+		top: 34px;
+		left: 0;
+		background-color: #FFF;
+		min-width: 240px;
+		max-width: 320px;
+		max-height: 280px;
+		overflow-y: auto;
+		z-index: 100;
+		border: 1px solid #cbd5e1;
+		border-radius: 4px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		display: none;
+	}
+
+	.gv-top .tim-giao-vien .load-giao-vien p {
+		border-bottom: 1px solid #f1f5f9;
+		line-height: 1.5;
+		padding: 7px 10px;
+		font-size: 13px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.gv-top .tim-giao-vien .load-giao-vien p:last-child {
+		border-bottom: none;
+	}
+
+	.gv-top .tim-giao-vien .load-giao-vien p:hover {
+		color: #ee5922;
+		background-color: #f8fafc;
+		cursor: pointer;
+	}
+
+	.giao-vien {
+		background-color: #FFF;
+		margin-bottom: 20px;
+		border: 1px solid #000;
+		border-radius: 4px;
+		overflow: hidden;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.giao-vien:last-child {
+		margin-bottom: 40px;
+	}
+
+	.giao-vien .giao-vien-chon {
+		border-bottom: 1px solid #000;
+		display: flex;
+		background-color: #b8e994;
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		box-sizing: border-box;
+	}
+
+	.giao-vien .giao-vien-chon h2 {
+		font-size: 15px;
+		color: #0b6b38;
+		font-weight: bold;
+		width: 160px;
+		min-width: 160px;
+		max-width: 160px;
+		padding: 12px 10px;
+		position: relative;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.giao-vien .giao-vien-chon h2 i {
+		font-size: 18px;
+		color: #0b6b38;
+		cursor: pointer;
+	}
+
+	.giao-vien .giao-vien-chon .list-mon {
+		border-left: 1px solid #000;
+		display: flex;
+		flex-wrap: wrap;
+		width: calc(100% - 160px);
+		padding: 10px 15px;
+		box-sizing: border-box;
+	}
+
+	.giao-vien .giao-vien-chon .list-mon .chon-mon {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 16px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.giao-vien .giao-vien-chon .list-mon .chon-mon label {
+		min-width: 85px;
+		font-size: 13px;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.giao-vien .mon-hoc .item-mon {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid #000;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	.giao-vien .mon-hoc .item-mon:last-child {
+		border-bottom: none;
+	}
+
+	.giao-vien .mon-hoc .item-mon .ten-mon {
+		width: 160px;
+		min-width: 160px;
+		max-width: 160px;
+		border-right: 1px solid #000;
+		padding: 12px 10px;
+		font-weight: bold;
+		font-size: 13px;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		background-color: #f8fafc;
+	}
+
+	.giao-vien .mon-hoc .item-mon .khoi-lop {
+		width: calc(100% - 160px);
+		padding: 10px 15px;
+		box-sizing: border-box;
+	}
+
+	.giao-vien .mon-hoc .item-mon .khoi-lop .item-khoi {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 4px 0;
+		gap: 8px 16px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.giao-vien .mon-hoc .item-mon .khoi-lop .item-khoi .item-lop {
+		min-width: 85px;
+		font-size: 13px;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.giao-vien .mon-hoc .item-mon .khoi-lop .item-khoi .item-lop label {
+		cursor: pointer;
+	}
+}
